@@ -204,49 +204,49 @@ export const schema = {
 
 export const uiSchema = {
   patientInfo: {
-    firstName: { classNames: 'col-6 d-inline-block' },
-    lastName: { classNames: 'col-6 d-inline-block' },
-    middleInitial: { classNames: 'col-6 d-inline-block' },
-    suffix: { classNames: 'col-6 d-inline-block' },
-    birthdate: { classNames: 'col-12', 'ui:widget': 'alt-date' },
+    firstName: { classNames: 'col-sm-6 d-inline-block' },
+    lastName: { classNames: 'col-sm-6 d-inline-block' },
+    middleInitial: { classNames: 'col-sm-6 d-inline-block' },
+    suffix: { classNames: 'col-sm-6 d-inline-block' },
+    birthdate: { classNames: 'col-sm-12', 'ui:widget': 'alt-date' },
     gender: {
       'ui:widget': 'radio',
       'ui:options': { inline: true, },
-      classNames: 'col-6 d-inline-block',
+      classNames: 'col-sm-6 d-inline-block',
     },
-    socialSecurityNumber: { classNames: 'col-12 d-inline-block', },
-    medicareNumber: { classNames: 'col-12 d-inline-block', },
-    medicaidNumber: { classNames: 'col-12 d-inline-block', },
-    address: { classNames: 'col-12 d-inline-block', },
-    city: { classNames: 'col-4 d-inline-block', },
-    state: { classNames: 'col-4 d-inline-block', },
-    zipCode: { classNames: 'col-4 d-inline-block', },
+    socialSecurityNumber: { classNames: 'col-sm-12 d-inline-block', },
+    medicareNumber: { classNames: 'col-sm-12 d-inline-block', },
+    medicaidNumber: { classNames: 'col-sm-12 d-inline-block', },
+    address: { classNames: 'col-sm-12 d-inline-block', },
+    city: { classNames: 'col-sm-4 d-inline-block', },
+    state: { classNames: 'col-sm-4 d-inline-block', },
+    zipCode: { classNames: 'col-sm-4 d-inline-block', },
   },
-  maritalStatus: { classNames: 'col-12', },
+  maritalStatus: { classNames: 'col-sm-12', },
   race_ethnicity: {
     'ui:widget': 'checkboxes',
-    classNames: 'col-12',
+    classNames: 'col-sm-12',
   },
-  education: { classNames: 'col-12', },
+  education: { classNames: 'col-sm-12', },
   codeStatus: {
     'ui:widget': 'textarea',
-    classNames: 'col-12',
+    classNames: 'col-sm-12',
   },
   advancedDirectives: {
     'ui:widget': 'radio',
     'ui:options': {
       inline: true
     },
-    classNames: 'col-12',
+    classNames: 'col-sm-12',
   },
   advancedDirectivesDescription: {
     'ui:widget': 'textarea',
     'ui:label': false,
-    classNames: 'col-12',
+    classNames: 'col-sm-12',
   },
-  preHospitalLivingSetting: { classNames: 'col-12', },
-  preHospitalLivingWith: { classNames: 'col-12', },
-  lifetimeOcuppations: { classNames: 'col-12', },
+  preHospitalLivingSetting: { classNames: 'col-sm-12', },
+  preHospitalLivingWith: { classNames: 'col-sm-12', },
+  lifetimeOcuppations: { classNames: 'col-sm-12', },
   powerOfAttorney: {
     add: {
       'ui:widget': 'radio',
@@ -254,36 +254,36 @@ export const uiSchema = {
         inline: true,
         label: false
       },
-      classNames: 'col-12',
+      classNames: 'col-sm-12',
     },
-    name: { classNames: 'col-12', },
-    relationship: { classNames: 'col-12', },
-    telephone: { classNames: 'col-12', },
+    name: { classNames: 'col-sm-12', },
+    relationship: { classNames: 'col-sm-12', },
+    telephone: { classNames: 'col-sm-12', },
     notes: {
       'ui:widget': 'textarea',
-      classNames: 'col-12',
+      classNames: 'col-sm-12',
     }
   },
   language: {
     englishSpeaking: {
       'ui:widget': 'radio',
       'ui:options': { inline: true },
-      classNames: 'col-12',
+      classNames: 'col-sm-12',
     },
-    interpreter: { classNames: 'col-6 d-inline-block', },
-    preferedLanguage: { classNames: 'col-6 d-inline-block', },
-    preferedWrittenLanguage: { classNames: 'col-12', },
+    interpreter: { classNames: 'col-sm-6 d-inline-block', },
+    preferedLanguage: { classNames: 'col-sm-6 d-inline-block', },
+    preferedWrittenLanguage: { classNames: 'col-sm-12', },
     otherNeeds: {
       'ui:widget': 'textarea',
-      classNames: 'col-12',
+      classNames: 'col-sm-12',
     }
   },
   religion: {
-    religion: { classNames: 'col-12', },
+    religion: { classNames: 'col-sm-12', },
     notes: {
       'ui:widget': 'textarea',
       'ui:options': { label: false },
-      classNames: 'col-12',
+      classNames: 'col-sm-12',
     }
   }
 };
