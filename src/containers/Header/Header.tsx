@@ -15,7 +15,7 @@ class Header extends React.Component<HeaderProps> {
     const { online } = this.props.statusStore;
 
     return (
-      <Navbar>
+      <Navbar fixedTop={true} >
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#home">LTRAX</a>
