@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 
 import * as schemas2015 from './DemographicForms/schemas2015';
 import * as schemas2017 from './DemographicForms/schemas2017';
-import SchemaForm from '../components/SchemaForm/SchemaForm';
+import SchemaForm from '../components/form/SchemaForm/SchemaForm';
 import { FormsStore } from '../stores/FormsStore';
 
 const tabsSchemas = {
@@ -60,6 +60,7 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
 
         <SchemaForm
           {...schemas}
+          key={this.state.activeEventKey}
           onChange={(form: any) => console.info('changed', form.formData) || this.setState({ formData: form.formData })}
           // onError={(form: any) => console.info('error', form) || this.setState({ formData: form.formData })}
           onSubmit={this.handleSubmit}

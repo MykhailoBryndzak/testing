@@ -11,8 +11,10 @@ const formsService = new FormsService(apiService);
 // const tabsSyncService = new TabsSyncService();
 
 import { FormsStore } from './stores/FormsStore';
+import { StatusStore } from './stores/StatusStore';
 
 const formsStore = new FormsStore(formsService);
+const statusStore = new StatusStore();
 
 localForage.config({
   driver: localForage.LOCALSTORAGE, // Force WebSQL; same as using setDriver()
@@ -33,7 +35,8 @@ const formsStoreHydate = hydrate('formsStore', formsStore);
 
 export const storesPromise = Promise.all([
   formsStoreHydate.then(R.always(['formsStore', formsStore])),
-]).then(R.fromPairs);
+  Promise.resolve(['statusStore', statusStore]),
+]).then(R.fromPairs as any);
 
 window.addEventListener('storage', event => {
   if (event.key === 'localforage/formsStore') { formsStoreHydate.rehydrate(); }

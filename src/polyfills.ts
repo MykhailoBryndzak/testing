@@ -6,4 +6,3 @@ import 'core-js/es5';
 import 'core-js/fn/number';
 
 import 'raf/polyfill';
-import 'ie9-oninput-polyfill';

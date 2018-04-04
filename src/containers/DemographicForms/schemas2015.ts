@@ -224,7 +224,7 @@ export const uiSchema = {
     lastName: { classNames: 'col-sm-6 d-inline-block' },
     middleInitial: { classNames: 'col-sm-6 d-inline-block' },
     suffix: { classNames: 'col-sm-6 d-inline-block' },
-    birthdate: { classNames: 'col-sm-12', 'ui:widget': 'alt-date' },
+    birthdate: { classNames: 'col-sm-6', 'ui:widget': 'date' },
     gender: {
       'ui:widget': 'radio',
       'ui:options': { inline: true, },
