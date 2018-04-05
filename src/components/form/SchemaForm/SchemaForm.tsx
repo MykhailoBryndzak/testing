@@ -7,7 +7,7 @@ import transformErrors from '../../../utils/transformErrors';
 
 const SchemaForm = ({ ...props }: any) => (
   <Form
-    noHtml5Validate={false}
+    noHtml5Validate={true}
     safeRenderCompletion={true}
     liveValidate={false}
     widgets={widgets}
