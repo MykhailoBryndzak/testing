@@ -61,13 +61,13 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
         <SchemaForm
           {...schemas}
           key={this.state.activeEventKey}
-          onChange={(form: any) => console.info('changed', form.formData) || this.setState({ formData: form.formData })}
-          // onError={(form: any) => console.info('error', form) || this.setState({ formData: form.formData })}
+          // validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
+          onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ formData: form.formData })}
+          onError={(form: any) => console.info('error', form)}
           onSubmit={this.handleSubmit}
           formData={this.state.formData}
         // formData={(formsStore.forms[0] || {}).model || undefined}
         />
-
       </Grid>
     );
   }

@@ -8,6 +8,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { App } from './App';
 import { storesPromise } from './stores';
 
+registerServiceWorker();
+
 storesPromise.then((stores) => {
   console.info('App starting');
   ReactDOM.render(
@@ -15,5 +17,3 @@ storesPromise.then((stores) => {
     document.getElementById('root') as HTMLElement
   );
 });
-
-registerServiceWorker();

@@ -8,9 +8,9 @@ export const schema = {
       required: ['firstName', 'middleInitial', 'lastName', 'gender'],
       title: 'Patient Identification',
       properties: {
-        firstName: { type: 'string', title: 'A0500A. First Name', default: '' },
-        middleInitial: { type: 'string', title: 'A0500B. Middle Initial', default: '' },
-        lastName: { type: 'string', title: 'A0500C. Last Name', default: '' },
+        firstName: { type: 'string', title: 'A0500A. First Name', errorMessage: 'First Name is required field' },
+        middleInitial: { type: 'string', title: 'A0500B. Middle Initial', },
+        lastName: { type: 'string', title: 'A0500C. Last Name', },
         suffix: { type: 'string', title: 'A0500D. Suffix', default: '' },
         birthdate: { type: 'string', format: 'date', title: 'A0900. Birth Date' },
         gender: {
@@ -73,7 +73,7 @@ export const schema = {
       title: 'A1050. Education',
       enum: ['low-high', 'high', 'magister'],
       enumNames: ['Low Education', 'High Education', 'Magister Education'],
-      default: ''
+      default: 'low-high'
     },
     codeStatus: {
       type: 'string',

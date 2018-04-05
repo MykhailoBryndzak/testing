@@ -9,8 +9,9 @@ const SchemaForm = ({ ...props }: any) => (
   <Form
     noHtml5Validate={false}
     safeRenderCompletion={true}
-    liveValidate={true}
+    liveValidate={false}
     widgets={widgets}
+    showErrorList={true}
     FieldTemplate={FieldTemplate}
     transformErrors={transformErrors(props.schema)}
     {...props}
