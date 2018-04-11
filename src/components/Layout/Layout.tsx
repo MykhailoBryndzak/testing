@@ -5,7 +5,7 @@ import * as React from 'react';
 export class Layout extends React.Component {
   render() {
     return (
-      <div className="layout-container" >
+      <div className="layout-container container" >
         {this.props.children}
       </div>
     );

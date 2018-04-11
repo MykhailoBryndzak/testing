@@ -31,13 +31,13 @@ const hydrate = create({
   jsonify: false,
 });
 
-const formsStoreHydate = hydrate('formsStore', formsStore);
+const formsStoreHydrate = hydrate('formsStore', formsStore);
 
 export const storesPromise = Promise.all([
-  formsStoreHydate.then(R.always(['formsStore', formsStore])),
+  formsStoreHydrate.then(R.always(['formsStore', formsStore])),
   Promise.resolve(['statusStore', statusStore]),
 ]).then(R.fromPairs as any);
 
 window.addEventListener('storage', event => {
-  if (event.key === 'localforage/formsStore') { formsStoreHydate.rehydrate(); }
+  if (event.key === 'localforage/formsStore') { formsStoreHydrate.rehydrate(); }
 });

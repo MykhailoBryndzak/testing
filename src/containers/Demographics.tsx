@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 
 import * as schemas2015 from './DemographicForms/schemas2015';
 import * as schemas2017 from './DemographicForms/schemas2017';
-import SchemaForm from '../components/form/SchemaForm/SchemaForm';
+import { SchemaForm } from '../components/form/SchemaForm/SchemaForm';
 import { FormsStore } from '../stores/FormsStore';
 
 const tabsSchemas = {

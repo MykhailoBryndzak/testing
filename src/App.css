@@ -14,10 +14,11 @@ h1, p {
   margin-left: 10px;
   /* margin-right: 10px; */
 
-  padding-left: 5px;
+  padding-left: 10px;
   /* padding-right: 5px; */
 
-  border-left: .5px solid #333;
+  border-left: 2px solid #ccc;
+  /* border-radius: 1%; */
   /* border-right: 2px solid black; */
 }
 
