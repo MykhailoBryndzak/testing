@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { UISref } from '@uirouter/react';
 
 import { StatusStore } from '../../stores/StatusStore';
 
@@ -15,10 +16,12 @@ class Header extends React.Component<HeaderProps> {
     const { online } = this.props.statusStore;
 
     return (
-      <Navbar fixedTop={true} >
+      <Navbar fixedTop={true} fluid={true} >
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#home">LTRAX</a>
+            <UISref to="home">
+              <span>LTRAX</span>
+            </UISref>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>

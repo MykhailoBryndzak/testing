@@ -51,7 +51,7 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
     const schemas = tabsSchemas[this.state.activeEventKey];
 
     return (
-      <Grid>
+      <div>
         All forms in pending state = {formsStore.forms.length}
         <Nav bsStyle="tabs" activeKey={this.state.activeEventKey} onSelect={this.handleSelectChange} >
           <NavItem eventKey="2015" > 2015 </NavItem>
@@ -68,7 +68,7 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
           formData={this.state.formData}
         // formData={(formsStore.forms[0] || {}).model || undefined}
         />
-      </Grid>
+      </div>
     );
   }
 }
