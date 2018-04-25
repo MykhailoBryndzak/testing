@@ -11,6 +11,7 @@ const navItems = [
   {
     key: 2,
     url: 'pre-admit',
+    params: { id: Date.now() },
     name: 'PRE-ADMIT'
   }
 ];
@@ -20,7 +21,7 @@ export const SideNav = (props: any) => (
     {navItems.map((item: any) => (
       <UISrefActive class="active" key={item.key}>
         <li>
-          <UISref to={item.url}>
+          <UISref to={item.url} params={item.params}>
             <a>{item.name}</a>
           </UISref>
         </li>
