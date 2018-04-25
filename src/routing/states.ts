@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout/Layout';
 import { SideNav } from '../components/side-nav/Side-Nav';
 import PreAdmit from '../containers/PreAdmit/PreAdmit';
 import Demographics from '../containers/Demographics_';
+import Referral from '../containers/Referral';
 
 const Home = () => 'HOME  !!!!!';
 
@@ -46,7 +47,7 @@ export const states: any = [
     name: 'ref',
     url: '/referal-payer',
     parent: 'pre-admit',
-    component: Demographics
+    component: Referral
   },
   {
     onEnter: () => console.info('ENTER status'),

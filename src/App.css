@@ -25,3 +25,10 @@ h1, p {
 fieldset {
   clear: both;
 }
+
+.bordered-3 {
+  border-top: none;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}

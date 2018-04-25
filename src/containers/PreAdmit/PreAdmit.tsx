@@ -61,7 +61,7 @@ class PreAdmit extends React.Component<DemographicsProps, DemographicsState> {
           </UISrefActive>
           <UISrefActive class="active">
             <UISref to={'ref'}>
-              <NavItem eventKey="1" > Refferal / Payer </NavItem>
+              <NavItem eventKey="1" > Referral / Payer </NavItem>
             </UISref>
           </UISrefActive>
           <UISrefActive class="active">

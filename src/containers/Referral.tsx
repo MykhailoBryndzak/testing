@@ -2,14 +2,12 @@ import * as React from 'react';
 import { Grid, Nav, NavItem } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 
-import * as schemas2015 from './DemographicForms/schemas2015';
-import * as schemas2017 from './DemographicForms/schemas2017';
+import * as ReferralSchema from './ReferralForms/referral';
 import { SchemaForm } from '../components/form/SchemaForm/SchemaForm';
 import { FormsStore } from '../stores/FormsStore';
 
 const tabsSchemas = {
-  '2015': schemas2015,
-  '2017': schemas2017,
+  '2015': ReferralSchema
 };
 
 interface DemographicsProps {
@@ -23,7 +21,7 @@ interface DemographicsState {
 
 @inject('formsStore')
 @observer
-class Demographics extends React.Component<DemographicsProps, DemographicsState> {
+class Referral extends React.Component<DemographicsProps, DemographicsState> {
   constructor(props: any) {
     super(props);
 
@@ -70,4 +68,4 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
   }
 }
 
-export default Demographics as React.ComponentClass;
+export default Referral as React.ComponentClass;
