@@ -4,6 +4,7 @@ import { SideNav } from '../components/side-nav/Side-Nav';
 import PreAdmit from '../containers/PreAdmit/PreAdmit';
 import Demographics from '../containers/Demographics_';
 import Referral from '../containers/Referral';
+import Status from '../containers/Status';
 
 const Home = () => 'HOME  !!!!!';
 
@@ -54,7 +55,7 @@ export const states: any = [
     name: 'status',
     url: '/status',
     parent: 'pre-admit',
-    component: Demographics
+    component: Status
   },
   {
     onEnter: () => console.info('ENTER function'),
