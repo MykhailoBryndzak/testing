@@ -26,7 +26,7 @@ class Header extends React.Component<HeaderProps> {
         </Navbar.Header>
         <Nav>
           <NavItem eventKey={1} href="#">
-            <div style={{ background: online ? 'green' : 'red', borderRadius: '100%', width: 10, height: 10, display: 'inline-block', marginRight: 5 }} />
+            <div style={{ background: online ? 'green' : 'red', borderRadius: '50%', width: 10, height: 10, display: 'inline-block', marginRight: 5 }} />
             {online ? 'online' : 'offline'}
           </NavItem>
         </Nav>

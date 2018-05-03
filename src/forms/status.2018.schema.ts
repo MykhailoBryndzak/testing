@@ -52,6 +52,7 @@ export const schema = {
               title: ' ',
               type: 'array',
               items: {
+                min: 1,
                 title: ' ',
                 type: 'object',
                 properties: {
@@ -74,8 +75,9 @@ export const schema = {
 export const uiSchema = {
   currentStatus: {
     primaryAcuteHospitalDiagnosys: {
-      icd10cm: {},
-      description: {},
+      'ui:options': { inline: true },
+      icd10cm: { 'ui:options': { inline: true } },
+      description: { 'ui:options': { inline: true } },
       dateOfOnSet: {},
       acuteHospitalAdmitDate: {}
     },

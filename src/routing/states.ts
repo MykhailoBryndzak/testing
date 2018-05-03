@@ -26,7 +26,9 @@ export const states: any = [
     onEnter: () => console.info('ENTER HOME')
   },
   {
-    onEnter: () => console.info('ENTER PRE-ADMIT'),
+    onEnter: (transition: any, state: any, params: any) => {
+      console.info('ENTER PRE-ADMIT', params);
+    },
     name: 'pre-admit',
     url: 'pre-admit/:id',
     redirectTo: 'demographics',

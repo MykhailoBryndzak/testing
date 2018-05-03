@@ -11,7 +11,7 @@ const navItems = [
   {
     key: 2,
     url: 'pre-admit',
-    params: { id: Date.now() },
+    params: { id: 'new' },
     name: 'PRE-ADMIT'
   }
 ];
