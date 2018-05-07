@@ -2,11 +2,9 @@ import * as React from 'react';
 import { Layout } from '../components/Layout/Layout';
 import { SideNav } from '../components/side-nav/Side-Nav';
 import PreAdmit from '../containers/PreAdmit/PreAdmit';
-import Demographics from '../containers/Demographics_';
-import Referral from '../containers/Referral';
-import Status from '../containers/Status';
-
-const Home = () => 'HOME  !!!!!';
+import { AdmitPage } from '../containers/Admit/Admit';
+import { HomePage } from '../containers/Home/Home';
+import { preAdmitSubStates } from './pre-admit.sub.states';
 
 export const states: any = [
   {
@@ -20,7 +18,7 @@ export const states: any = [
     url: 'home',
     parent: 'root',
     views: {
-      'content': { component: Home },
+      'content': { component: HomePage },
       'sideBar': { component: SideNav }
     },
     onEnter: () => console.info('ENTER HOME')
@@ -38,67 +36,17 @@ export const states: any = [
       'sideBar': { component: SideNav }
     }
   },
+  ...preAdmitSubStates,
   {
-    onEnter: () => console.info('ENTER Demographics'),
-    name: 'demographics',
-    url: '/demographics',
-    parent: 'pre-admit',
-    component: Demographics
-  },
-  {
-    onEnter: () => console.info('ENTER ref'),
-    name: 'ref',
-    url: '/referal-payer',
-    parent: 'pre-admit',
-    component: Referral
-  },
-  {
-    onEnter: () => console.info('ENTER status'),
-    name: 'status',
-    url: '/status',
-    parent: 'pre-admit',
-    component: Status
-  },
-  {
-    onEnter: () => console.info('ENTER function'),
-    name: 'function',
-    url: '/function',
-    parent: 'pre-admit',
-    component: Demographics
-  },
-  {
-    onEnter: () => console.info('ENTER ahac'),
-    name: 'ahac',
-    url: '/ahac',
-    parent: 'pre-admit',
-    component: Demographics
-  },
-  {
-    onEnter: () => console.info('ENTER ros'),
-    name: 'ros',
-    url: '/ros',
-    parent: 'pre-admit',
-    component: Demographics
-  },
-  {
-    onEnter: () => console.info('ENTER respiratory'),
-    name: 'respiratory',
-    url: '/respiratory',
-    parent: 'pre-admit',
-    component: Demographics
-  },
-  {
-    onEnter: () => console.info('ENTER labs'),
-    name: 'labs',
-    url: '/labs',
-    parent: 'pre-admit',
-    component: Demographics
-  },
-  {
-    onEnter: () => console.info('ENTER justification'),
-    name: 'justification',
-    url: '/justification',
-    parent: 'pre-admit',
-    component: Demographics
+    onEnter: (transition: any, state: any, params: any) => {
+      console.info('ENTER PRE-ADMIT', params);
+    },
+    name: 'admit',
+    url: 'admit/:id',
+    parent: 'root',
+    views: {
+      'content': { component: AdmitPage },
+      'sideBar': { component: SideNav }
+    }
   }
 ];

@@ -13,6 +13,12 @@ const navItems = [
     url: 'pre-admit',
     params: { id: 'new' },
     name: 'PRE-ADMIT'
+  },
+  {
+    key: 3,
+    url: 'admit',
+    params: { id: 'new' },
+    name: 'ADMIT'
   }
 ];
 

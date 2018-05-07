@@ -16,19 +16,21 @@ class Header extends React.Component<HeaderProps> {
     const { online } = this.props.statusStore;
 
     return (
-      <Navbar fixedTop={true} fluid={true} >
+      <Navbar fixedTop={true} fluid={false} >
         <Navbar.Header>
           <Navbar.Brand>
             <UISref to="home">
-              <span>LTRAX</span>
+              <span>
+                <span style={{ color: online ? '#2acc2a' : '#ff3636', fontWeight: 'bold' }}>LTRAX</span>
+              </span>
             </UISref>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem eventKey={1} href="#">
+          {/* <NavItem eventKey={1} href="#">
             <div style={{ background: online ? 'green' : 'red', borderRadius: '50%', width: 10, height: 10, display: 'inline-block', marginRight: 5 }} />
             {online ? 'online' : 'offline'}
-          </NavItem>
+          </NavItem> */}
         </Nav>
       </Navbar>
     );

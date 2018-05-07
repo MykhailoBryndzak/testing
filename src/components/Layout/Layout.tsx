@@ -9,7 +9,7 @@ export class Layout extends React.Component {
     return (
       <div className="layout-container" >
         <Header />
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
             <div className="col-md-2">
               <UIView name={'sideBar'} />
