@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIRouter, UIView, hashLocationPlugin, servicesPlugin, UIRouterReact } from '@uirouter/react';
+import { UIRouter, UIView, hashLocationPlugin, servicesPlugin, UIRouterReact, StateService } from '@uirouter/react';
 
 import { states } from './states';
 

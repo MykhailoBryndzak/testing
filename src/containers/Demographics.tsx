@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Grid, Nav, NavItem } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
+import * as mobx from 'mobx';
 
 import * as schemas2015 from './DemographicForms/schemas2015';
 import * as schemas2017 from './DemographicForms/schemas2017';
@@ -40,7 +41,7 @@ class Demographics extends React.Component<Props, State> {
   render() {
     const schemas: any = schemas2015;
     const id: string = this.props.$stateParams.id;
-    const form: any = this.props.formsStore.forms[id][KEY] || {};
+    const form: object = mobx.toJS(this.props.formsStore.forms[id][KEY]) || {};
 
     return (
       <div className="container-fluid bordered-3">
