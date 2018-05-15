@@ -14,7 +14,10 @@ export const NavTabsCustom = ({ activeEventKey, handleSelectChange, upsidedown =
         <NavItem eventKey="1" > Referral / Payer </NavItem>
       </UISref>
     </UISrefActive>
-    <UISrefActive class="active">
+    {/*
+      *----maybe later this forms will be in use but not for POC
+
+     <UISrefActive class="active">
       <UISref to={'status'}>
         <NavItem eventKey="2" > Status </NavItem>
       </UISref>
@@ -48,6 +51,7 @@ export const NavTabsCustom = ({ activeEventKey, handleSelectChange, upsidedown =
       <UISref to={'justification'}>
         <NavItem eventKey="8" disabled={true}> Justification </NavItem>
       </UISref>
-    </UISrefActive>
+    </UISrefActive> 
+    */}
   </Nav>
 );
