@@ -31,6 +31,9 @@ export const states: any = [
     url: 'pre-admit/:id',
     redirectTo: 'demographics',
     parent: 'root',
+    params: {
+      id: () => Date.now().toString()
+    },
     views: {
       'content': { component: PreAdmit },
       'sideBar': { component: SideNav }

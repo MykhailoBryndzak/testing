@@ -6,54 +6,52 @@ import * as ReferralSchema from './ReferralForms/referral';
 import { SchemaForm } from '../components/form/SchemaForm/SchemaForm';
 import { FormsStore } from '../stores/FormsStore';
 
-const tabsSchemas = {
-  '2015': ReferralSchema
-};
+const KEY = 'REFERRAL';
 
-interface DemographicsProps {
+interface Props {
   formsStore: FormsStore;
+  $stateParams: {
+    id: string
+  };
 }
 
-interface DemographicsState {
-  activeEventKey: string;
+interface State {
   formData: any;
 }
 
 @inject('formsStore')
 @observer
-class Referral extends React.Component<DemographicsProps, DemographicsState> {
+class Referral extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      activeEventKey: '2015',
       formData: {},
     };
   }
 
-  handleSelectChange = (activeEventKey: any) => {
-    console.info(activeEventKey);
-    this.setState({ activeEventKey, formData: {} });
-  }
+  handleSelectChange = (activeEventKey: any) => false;
 
   handleSubmit = (formProps: any) => {
-    console.info(formProps.formData);
-    this.props.formsStore.addForm({
-      formId: this.state.activeEventKey,
-      model: formProps.formData,
+    const {
+      $stateParams,
+      formsStore
+    } = this.props;
+
+    formsStore.upsertSection($stateParams.id, {
+      ...formsStore.forms[$stateParams.id],
+      [KEY]: formProps.formData
     });
   }
 
   render() {
-    const { formsStore } = this.props;
-    const schemas = tabsSchemas[this.state.activeEventKey];
 
     return (
       <div className="container-fluid bordered-3">
         <div className="row">
           <div className="col-xs-12">
             <SchemaForm
-              {...schemas}
+              {...ReferralSchema}
               // validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
               onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ formData: form.formData })}
               onError={(form: any) => console.info('error', form)}

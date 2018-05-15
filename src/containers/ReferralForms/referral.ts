@@ -1,4 +1,4 @@
-export const schema = {
+export const schema: any = {
   title: 'Referral / Payer',
   type: 'object',
   required: [],

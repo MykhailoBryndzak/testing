@@ -7,67 +7,58 @@ import * as schemas2017 from './DemographicForms/schemas2017';
 import { SchemaForm } from '../components/form/SchemaForm/SchemaForm';
 import { FormsStore } from '../stores/FormsStore';
 
-const tabsSchemas = {
-  '2015': schemas2015,
-  '2017': schemas2017,
-};
+const KEY: string = 'DEMOGRAPHICS';
 
-interface DemographicsProps {
-  formsStore: FormsStore;
+interface Props {
+  formsStore: any;
+  $stateParams: {
+    id: string
+  };
 }
-
-interface DemographicsState {
-  activeEventKey: string;
-  formData: any;
+interface State {
+  form: any;
 }
-
 @inject('formsStore')
 @observer
-class Demographics extends React.Component<DemographicsProps, DemographicsState> {
+class Demographics extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      activeEventKey: '2015',
-      formData: {},
+      form: this.props.formsStore.forms[this.props.$stateParams.id][KEY] || {}
     };
-  }
-
-  handleSelectChange = (activeEventKey: any) => {
-    console.info(activeEventKey);
-    this.setState({ activeEventKey, formData: {} });
   }
 
   handleSubmit = (formProps: any) => {
     console.info(formProps.formData);
-    this.props.formsStore.addForm({
-      formId: this.state.activeEventKey,
-      model: formProps.formData,
+    const {
+      formsStore,
+      $stateParams
+    } = this.props;
+    formsStore.upsertSection($stateParams.id, {
+      ...formsStore.forms[$stateParams.id],
+      [KEY]: formProps.formData
     });
   }
 
   render() {
-    const { formsStore } = this.props;
-    const schemas = tabsSchemas[this.state.activeEventKey];
+    const schemas: any = schemas2015;
 
     return (
-      <div>
-        All forms in pending state = {formsStore.forms.length}
-        <Nav bsStyle="tabs" activeKey={this.state.activeEventKey} onSelect={this.handleSelectChange} >
-          <NavItem eventKey="2015" > 2015 </NavItem>
-          <NavItem eventKey="2017" > 2017 </NavItem>
-        </Nav>
-
-        <SchemaForm
-          {...schemas}
-          key={this.state.activeEventKey}
-          // validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
-          onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ formData: form.formData })}
-          onError={(form: any) => console.info('error', form)}
-          onSubmit={this.handleSubmit}
-          formData={this.state.formData}
-        // formData={(formsStore.forms[0] || {}).model || undefined}
-        />
+      <div className="container-fluid bordered-3">
+        <div className="row">
+          <div className="col-xs-12">
+            <SchemaForm
+              {...schemas}
+              validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
+              onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ form: form.formData })}
+              onError={(form: any) => console.info('error', form)}
+              onSubmit={this.handleSubmit}
+              formData={this.state.form}
+              // formData={(formsStore.forms[0] || {}).model || undefined}
+            />
+          </div>
+        </div>
       </div>
     );
   }
