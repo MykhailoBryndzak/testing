@@ -1,17 +1,23 @@
 import { observable } from 'mobx';
 import { persist } from 'mobx-persist';
 
-import { FormsService, FormModel } from '../services/FormsService';
+import { FormsService, PreAdmitForm } from '../services/FormsService';
 
 export class FormsStore {
-  @persist('list') @observable forms: Array<FormModel> = [];
+  @persist('object') @observable forms: object = {};
 
   constructor(
     private formsService: FormsService
   ) { }
 
-  addForm(form: FormModel) {
-    this.forms.push(form);
+  addForm(id: string) {
+    this.forms = {
+      ...this.forms,
+      [id]: {}
+    };
+  }
+  upsertSection(id: string, form: any) {
+    this.forms[id] = form;
   }
 
 }

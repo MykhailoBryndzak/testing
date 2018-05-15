@@ -1,4 +1,4 @@
-export const schema = {
+export const schema: any = {
   title: 'Demographics',
   type: 'object',
   required: ['patientInfo'],

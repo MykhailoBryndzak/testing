@@ -8,7 +8,7 @@ interface Props {
 const getTableRow = ({model, formId}: any, index: number) => (
   <tr key={index}>
     <th scope="row">{index}</th>
-    <td>{formId}</td>
+    <td>label</td>
     <td>{model.patientInfo.firstName}</td>
     <td>{model.patientInfo.lastName}</td>
   </tr>
@@ -21,19 +21,19 @@ export class HomePage extends React.Component<Props> {
     console.info('home props', this.props.formsStore);
     return (
       <div>
-        <span>{'HOME -< !!!' + this.props.formsStore.forms.length}</span>
+        {/* <span>{'HOME -< !!!' + this.props.formsStore.forms.length}</span> */}
         <table className="table table-hover"> 
           <caption>Pre-Admit forms in local storage.</caption> 
           <thead> 
             <tr> 
               <th>#</th> 
               <th>Form ID</th> 
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Last Name</th> 
+              <th>Username</th> 
             </tr> 
           </thead>
           <tbody> 
-            {this.props.formsStore.forms.map((form: any, index: number) => getTableRow(form, ++index))}
+            {Object.keys(this.props.formsStore.forms).map((key: any, index: number) => getTableRow(this.props.formsStore.forms[key], ++index))}
           </tbody>
         </table>
       </div>

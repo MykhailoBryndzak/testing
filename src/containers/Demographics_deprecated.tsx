@@ -51,20 +51,23 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
     const schemas = tabsSchemas[this.state.activeEventKey];
 
     return (
-      <div className="container-fluid bordered-3">
-        <div className="row">
-          <div className="col-xs-12">
-            <SchemaForm
-              {...schemas}
-              // validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
-              onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ formData: form.formData })}
-              onError={(form: any) => {console.info('error', form); window.scrollBy(0, -10000); }}
-              onSubmit={this.handleSubmit}
-              formData={this.state.formData}
-            // formData={(formsStore.forms[0] || {}).model || undefined}
-            />
-          </div>
-        </div>
+      <div>
+        All forms in pending state = {formsStore.forms.length}
+        <Nav bsStyle="tabs" activeKey={this.state.activeEventKey} onSelect={this.handleSelectChange} >
+          <NavItem eventKey="2015" > 2015 </NavItem>
+          <NavItem eventKey="2017" > 2017 </NavItem>
+        </Nav>
+
+        <SchemaForm
+          {...schemas}
+          key={this.state.activeEventKey}
+          // validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
+          onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ formData: form.formData })}
+          onError={(form: any) => {console.info('error', form); window.scrollBy(0, -10000); }}
+          onSubmit={this.handleSubmit}
+          formData={this.state.formData}
+        // formData={(formsStore.forms[0] || {}).model || undefined}
+        />
       </div>
     );
   }

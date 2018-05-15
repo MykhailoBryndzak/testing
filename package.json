@@ -36,6 +36,7 @@
     "@types/react-bootstrap": "0.32.6",
     "@types/react-dom": "16.0.4",
     "@types/react-jsonschema-form": "1.0.3",
+    "mobx-react-devtools": "^5.0.1",
     "typescript": "2.8.1"
   }
 }

@@ -1,4 +1,4 @@
-import Demographics from '../containers/Demographics_';
+import Demographics from '../containers/Demographics';
 import Referral from '../containers/Referral';
 import Status from '../containers/Status';
 

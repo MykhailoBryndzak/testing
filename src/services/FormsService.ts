@@ -5,13 +5,19 @@ export interface FormModel {
   model: any;
 }
 
+export interface PreAdmitForm {
+  DEMOGRAPHICS: any;
+  REFERRAL: any;
+  STATUS: any;
+}
+
 export class FormsService {
   constructor(
     private api: ApiService
   ) { }
 
-  postForm({ formId, model }: FormModel) {
-    console.info('postForm', { formId, model });
+  postForm(form: PreAdmitForm) {
+    console.info('postForm', form);
   }
 
 }
