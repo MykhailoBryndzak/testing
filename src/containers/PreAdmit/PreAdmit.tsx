@@ -14,7 +14,9 @@ class PreAdmit extends React.Component<Props> {
   constructor(props: any) {
     super(props);
 
-    this.props.formsStore.addForm(this.props.$stateParams.id);
+    if (!this.props.formsStore.forms[this.props.$stateParams.id]) {
+      this.props.formsStore.addForm(this.props.$stateParams.id);
+    }
   }
 
   render() {

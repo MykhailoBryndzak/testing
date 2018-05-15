@@ -1,17 +1,20 @@
 import * as React from 'react';
+import { UISref } from '@uirouter/react';
 import { inject, observer } from 'mobx-react';
 
 interface Props {
   formsStore: any;
 }
 
-const getTableRow = (form: any, index: number) => (
-  <tr key={index}>
-    <th scope="row">{index}</th>
-    <td>label</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-  </tr>
+const getTableRow = (id: string, form: any) => (
+  <UISref to="pre-admit" params={{id}} key={id}>
+    <tr>
+      <th scope="row">{id}</th>
+      <td>label</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+  </UISref>
 );
 
 @inject('formsStore')
@@ -33,7 +36,7 @@ export class HomePage extends React.Component<Props> {
             </tr> 
           </thead>
           <tbody> 
-            {Object.keys(this.props.formsStore.forms).map((key: any, index: number) => getTableRow(this.props.formsStore.forms[key], ++index))}
+            {Object.keys(this.props.formsStore.forms).map((key: any) => getTableRow(key, this.props.formsStore.forms[key]))}
           </tbody>
         </table>
       </div>

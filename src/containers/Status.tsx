@@ -20,7 +20,7 @@ interface Props {
 }
 
 interface State {
-  formData: any;
+  form: any;
 }
 
 @inject('formsStore')
@@ -30,7 +30,7 @@ class Status extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      formData: {},
+      form: this.props.formsStore.forms[this.props.$stateParams.id][KEY] || {}
     };
   }
 
@@ -57,10 +57,10 @@ class Status extends React.Component<Props, State> {
             <SchemaForm
               {...StatusSchema}
               // validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
-              onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ formData: form.formData })}
+              onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ form: form.formData })}
               onError={(form: any) => console.info('error', form)}
               onSubmit={this.handleSubmit}
-              formData={this.state.formData}
+              formData={this.state.form}
             // formData={(formsStore.forms[0] || {}).model || undefined}
             />
           </div>

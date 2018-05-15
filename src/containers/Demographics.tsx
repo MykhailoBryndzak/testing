@@ -15,18 +15,13 @@ interface Props {
     id: string
   };
 }
-interface State {
-  form: any;
-}
+interface State {}
+
 @inject('formsStore')
 @observer
 class Demographics extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
-
-    this.state = {
-      form: this.props.formsStore.forms[this.props.$stateParams.id][KEY] || {}
-    };
   }
 
   handleSubmit = (formProps: any) => {
@@ -35,6 +30,7 @@ class Demographics extends React.Component<Props, State> {
       formsStore,
       $stateParams
     } = this.props;
+
     formsStore.upsertSection($stateParams.id, {
       ...formsStore.forms[$stateParams.id],
       [KEY]: formProps.formData
@@ -43,6 +39,8 @@ class Demographics extends React.Component<Props, State> {
 
   render() {
     const schemas: any = schemas2015;
+    const id: string = this.props.$stateParams.id;
+    const form: any = this.props.formsStore.forms[id][KEY] || {};
 
     return (
       <div className="container-fluid bordered-3">
@@ -51,10 +49,10 @@ class Demographics extends React.Component<Props, State> {
             <SchemaForm
               {...schemas}
               validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
-              onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ form: form.formData })}
-              onError={(form: any) => console.info('error', form)}
-              onSubmit={this.handleSubmit}
-              formData={this.state.form}
+              onChange={this.handleSubmit}
+              onError={(formProps: any) => console.info('error', formProps)}
+              // onSubmit={this.handleSubmit}
+              formData={form}
               // formData={(formsStore.forms[0] || {}).model || undefined}
             />
           </div>
