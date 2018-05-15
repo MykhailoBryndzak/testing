@@ -5,12 +5,12 @@ interface Props {
   formsStore: any;
 }
 
-const getTableRow = ({model, formId}: any, index: number) => (
+const getTableRow = (form: any, index: number) => (
   <tr key={index}>
     <th scope="row">{index}</th>
     <td>label</td>
-    <td>{model.patientInfo.firstName}</td>
-    <td>{model.patientInfo.lastName}</td>
+    {/*<td>{model.patientInfo.firstName}</td>*/}
+    {/*<td>{model.patientInfo.lastName}</td>*/}
   </tr>
 );
 

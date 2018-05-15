@@ -41,8 +41,8 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
   handleSubmit = (formProps: any) => {
     console.info(formProps.formData);
     this.props.formsStore.addForm({
-      formId: this.state.activeEventKey,
-      model: formProps.formData,
+      // formId: this.state.activeEventKey,
+      // model: formProps.formData,
     });
   }
 
@@ -52,7 +52,7 @@ class Demographics extends React.Component<DemographicsProps, DemographicsState>
 
     return (
       <div>
-        All forms in pending state = {formsStore.forms.length}
+        {/* All forms in pending state = {formsStore.forms.length} */}
         <Nav bsStyle="tabs" activeKey={this.state.activeEventKey} onSelect={this.handleSelectChange} >
           <NavItem eventKey="2015" > 2015 </NavItem>
           <NavItem eventKey="2017" > 2017 </NavItem>

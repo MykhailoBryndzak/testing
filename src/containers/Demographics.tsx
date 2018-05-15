@@ -52,7 +52,7 @@ class Demographics extends React.Component<Props, State> {
               {...schemas}
               validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
               onChange={(form: any) => console.info('changed', form.formData, form) || this.setState({ form: form.formData })}
-              onError={(form: any) => console.info('error', form)}
+              onError={(form: any) => {console.info('error', form); window.scrollBy(0, -10000); }}
               onSubmit={this.handleSubmit}
               formData={this.state.form}
               // formData={(formsStore.forms[0] || {}).model || undefined}
