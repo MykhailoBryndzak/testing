@@ -6,11 +6,11 @@ interface Props {
 }
 
 const getTableRow = ({model, formId}: any, index: number) => (
-  <tr>
+  <tr key={index}>
     <th scope="row">{index}</th>
     <td>{formId}</td>
-    <td>Otto</td>
-    <td>@mdo</td>
+    <td>{model.patientInfo.firstName}</td>
+    <td>{model.patientInfo.lastName}</td>
   </tr>
 );
 
@@ -28,8 +28,8 @@ export class HomePage extends React.Component<Props> {
             <tr> 
               <th>#</th> 
               <th>Form ID</th> 
-              <th>Last Name</th> 
-              <th>Username</th> 
+              <th>First Name</th>
+              <th>Last Name</th>
             </tr> 
           </thead>
           <tbody> 

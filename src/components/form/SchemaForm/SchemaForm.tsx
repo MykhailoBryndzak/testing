@@ -47,7 +47,7 @@ export const SchemaForm = ({ ...props }: FormProps) => (
     safeRenderCompletion={true}
     liveValidate={false}
     widgets={widgets}
-    showErrorList={true}
+    showErrorList={false}
     FieldTemplate={FieldTemplate}
     transformErrors={transformErrors(props.schema)}
     {...props}

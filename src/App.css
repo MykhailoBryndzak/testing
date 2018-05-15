@@ -65,3 +65,8 @@ fieldset {
   border: 1px solid #ddd;
   border-top-color: transparent;
 }
+
+#root ul li ul > li > a {
+  cursor: pointer;
+  text-decoration: none;  
+}
