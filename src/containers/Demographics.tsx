@@ -31,7 +31,7 @@ class Demographics extends React.Component<Props, State> {
       formsStore,
       $stateParams
     } = this.props;
-
+    
     formsStore.upsertSection($stateParams.id, {
       ...formsStore.forms[$stateParams.id],
       [KEY]: formProps.formData
@@ -51,8 +51,8 @@ class Demographics extends React.Component<Props, State> {
               {...schemas}
               validate={(d: any, errors: any[]) => console.info('validate', d, errors) || errors}
               onChange={this.handleSubmit}
-              onError={(formProps: any) => console.info('error', formProps)}
-              // onSubmit={this.handleSubmit}
+              onError={(formProps: any) => {console.info('error', formProps); window.scrollBy(0, -10000); }}
+                // onSubmit={this.handleSubmit}
               formData={form}
               // formData={(formsStore.forms[0] || {}).model || undefined}
             />

@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/prop-types": "^15.5.2",
     "@uirouter/react": "^0.6.2",
+    "react-table": "6.8.6",
     "ajv": "6.4.0",
     "core-js": "2.5.4",
     "localforage": "1.6.0",

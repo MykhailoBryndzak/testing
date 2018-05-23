@@ -1,0 +1,177 @@
+.main-filter {
+    margin: 20px;
+    padding: 10px;
+    width: 650px;
+    height: auto;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+}
+
+div.line-first {
+    order: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+div.line-first div.sub-line-first {
+    order: 0;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #eee;
+}
+
+div.line-first div.sub-line-first>* {
+    margin: 10px;
+}
+
+div.line-first div.sub-line-second {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #eee;
+}
+
+div.line-first div.sub-line-second>* {
+    margin: 10px;
+}
+
+div.line-first div.sub-line-first> :nth-child(1) {
+    order: 0;
+}
+
+div.line-first div.sub-line-first> :nth-child(2) {
+    order: 1;
+}
+
+div.line-first div.sub-line-first> :nth-child(3) {
+    order: 2;
+}
+
+div.line-first div.sub-line-second> :nth-child(1) {
+    order: 1;
+}
+
+div.line-first div.sub-line-second> :nth-child(2) {
+    order: 2;
+}
+
+div.line-first div.sub-line-second> :nth-child(3) {
+    order: 3;
+}
+
+div.line-second {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+div.line-second div.sub-line-first {
+    order: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+div.line-second div.sub-line-first>* {
+    margin: 10px;
+}
+div.line-second div.sub-line-second>* {
+    margin: 10px;
+}
+
+div.line-second div.sub-line-second {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #eee;
+}
+
+div.line-second div.sub-line-first> :nth-child(1) {
+    order: 0;
+}
+div.line-second div.sub-line-first> :nth-child(2) {
+    order: 1;
+}
+div.line-second div.sub-line-first> :nth-child(3) {
+    order: 2;
+}
+div.line-second div.sub-line-first> :nth-child(4) {
+    order: 3;
+}
+div.line-second div.sub-line-second> :nth-child(1) {
+    order: 0;
+}
+div.line-second div.sub-line-second> :nth-child(2) {
+    order: 1;
+}
+div.line-second div.sub-line-second> :nth-child(3) {
+    order: 2;
+    width: auto;
+}
+div.line-second div.sub-line-second> :nth-child(4) {
+    order: 3;
+}
+div.line-second div.sub-line-second> :nth-child(5) {
+    order: 4;
+}
+div.line-third {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #eee;    
+}
+div.line-third>* {
+    margin: 10px;
+}
+div.line-third> :nth-child(2) {
+   width: 45px;
+}
+
+div.line-fourth {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+div.line-fourth div.sub-line-first {
+    order: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+div.line-fourth div.sub-line-second {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+div.line-fourth div.sub-line-first>* {
+    margin: 10px;
+}
+div.line-fourth div.sub-line-second>* {
+    margin: 10px;
+}
+
+div.line-fourth div.sub-line-first> :nth-child(1) {
+    order: 0;
+}
+div.line-fourth div.sub-line-first> :nth-child(2) {
+    order: 1;
+    width: auto;
+}
+div.line-fourth div.sub-line-first> :nth-child(3) {
+    order: 2;
+}
+div.line-fourth div.sub-line-first> :nth-child(4) {
+    order: 3;
+}
+
+div.line-fourth div.sub-line-second> :nth-child(1) {
+    order: 0;
+}
+div.line-fourth div.sub-line-second> :nth-child(2) {
+    order: 1;
+}
+div.line-fourth div.sub-line-second> :nth-child(3) {
+    order: 2;
+}
