@@ -13,7 +13,7 @@ export class ApiService {
   }
 
   get(url: string, params: RequestInitExtended) {
-    this.fetch('GET', url, params);
+    return this.fetch('GET', url, params);
   }
 
   post(url: string, params: RequestInitExtended) {
@@ -41,6 +41,6 @@ export class ApiService {
       method,
     })
       .then(this._handleOkOrFailure)
-      .then(res => parseJson ? res.json() : res);
+      .then((res: any = {}) => res.json());
   }
 }

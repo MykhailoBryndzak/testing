@@ -11,23 +11,29 @@ export const FilterHomePage = (props: any) => (
             <div className="line-first">
                 <div className="sub-line-first">
                     <label>Show: </label>
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="In-Progress" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">In-Progress</MenuItem>
+                        <MenuItem eventKey="2">Admit-Incoplete</MenuItem>
+                        <MenuItem eventKey="3">Admit-Complete</MenuItem>
                     </DropdownButton>
 
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
-                        <MenuItem eventKey="2">Another action</MenuItem>
+                    <DropdownButton title="Only assessments I have created" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Only assessments I have created</MenuItem>
+                        <MenuItem eventKey="2">All assessments for my site</MenuItem>
+                        <MenuItem eventKey="3">All assessments for my facility</MenuItem>
                     </DropdownButton>
                 </div>
                 <div className="sub-line-second">
                     <label>Sort by: </label>
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="Date Admitted" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Date Admitted</MenuItem>
+                        <MenuItem eventKey="2">Date Created</MenuItem>
+                        <MenuItem eventKey="3">Date Denied</MenuItem>
                     </DropdownButton>
 
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="Ascending" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Ascending</MenuItem>
+                        <MenuItem eventKey="1">Descending</MenuItem>
                     </DropdownButton>
                 </div>
             </div>
@@ -37,22 +43,29 @@ export const FilterHomePage = (props: any) => (
 
                     <label>Restrict to : </label>
 
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="Admitted" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Admitted</MenuItem>
+                        <MenuItem eventKey="2">Didcharged</MenuItem>
+                        <MenuItem eventKey="3">Created</MenuItem>
+                        <MenuItem eventKey="4">Denied</MenuItem>
                     </DropdownButton>
 
                     <label>During: </label>
 
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="Custom" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Last 90 days</MenuItem>
+                        <MenuItem eventKey="1">Last 365 days</MenuItem>
+                        <MenuItem eventKey="1">Cal Yr 2018</MenuItem>
                     </DropdownButton>
 
                 </div>
 
                 <div className="sub-line-second">
 
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="Last Name" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Last Name</MenuItem>
+                        <MenuItem eventKey="1">Patiend ID</MenuItem>
+                        <MenuItem eventKey="1">SSN</MenuItem>
                     </DropdownButton>
 
                     <label>Starting with: </label>
@@ -83,8 +96,10 @@ export const FilterHomePage = (props: any) => (
                 <div className="sub-line-second">
                     <label>Provider ID: </label>
 
-                    <DropdownButton title="Default button" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Action</MenuItem>
+                    <DropdownButton title="Eleks" id="default" bsSize="sm">
+                        <MenuItem eventKey="1">Eleks</MenuItem>
+                        <MenuItem eventKey="2">Facility 1033</MenuItem>
+                        <MenuItem eventKey="3">Facility 1034</MenuItem>
                     </DropdownButton>
 
                     <label>(Superuser only)</label>

@@ -4,44 +4,49 @@ import * as React from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import { FilterHomePage } from '../../components/FilterHomePage/FilterHomePage';
+import * as PropTypes from 'prop-types';
 interface Props {
   formsStore: any;
 }
 
-const getTableRow = (id: string, form: any) => (
-  <UISref to="pre-admit" params={{ id }} key={id}>
-    <tr>
-      <th scope="row">{id}</th>
-      <td>label</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-  </UISref>
-);
-
 @inject('formsStore')
 @observer
 export class HomePage extends React.Component<Props> {
+  static contextTypes: React.ValidationMap<any> = {
+    router: PropTypes.object.isRequired
+  };
+
+  constructor(props: any, context: any) {
+    super(props, context);
+  }
+
+  componentWillMount() {
+    this.props.formsStore.initHomePage();
+  }
+
   render() {
     let self = this;
-    let res: any[] = [];
+    let res: any = [];
 
     Object.keys(self.props.formsStore.forms).forEach((key, index) => {
-      let info = self.props.formsStore.forms[key].DEMOGRAPHICS;
+      let info = self.props.formsStore.forms[key];
 
-      if (info && info.patientInfo) {
-        res.push(info.patientInfo);
+      if (info) {
+        res.push(info);
       }
     });
-    let filterItems = (rows: any, value: any, keys: object) => {
 
-      return true;
-    };
-
-    console.info('home props', res);
     return (
       <div>
         <ReactTable
+          getTdProps={(state: any, rowInfo: any, column: any, instance: any) => {
+            return {
+              onClick: (e: any, handleOriginal: any) => {
+                self.context.router.stateService.go('pre-admit', { id: rowInfo.row.preAdmitId });
+              },
+            };
+          }}
+          multiSort={true}
           data={res}
           columns={[
             {
@@ -49,7 +54,7 @@ export class HomePage extends React.Component<Props> {
               columns: [
                 {
                   Header: 'Key',
-                  accessor: 'key',
+                  accessor: 'preAdmitId',
                 },
                 {
                   Header: 'First Name',
@@ -60,8 +65,12 @@ export class HomePage extends React.Component<Props> {
                   accessor: 'lastName'
                 },
                 {
-                  Header: 'Medicare #',
-                  accessor: 'mediacareNumber',
+                  Header: 'Genger',
+                  accessor: 'gender'
+                },
+                {
+                  Header: 'Pre-Admit State',
+                  accessor: 'preAdmitState',
                 }
               ]
             }
@@ -70,23 +79,7 @@ export class HomePage extends React.Component<Props> {
           className="-striped -highlight"
         />
 
-         <FilterHomePage /> 
-
-        {/* <span>{'HOME -< !!!' + this.props.formsStore.forms.length}</span> */}
-        <table className="table table-hover">
-          <caption>Pre-Admit forms in local storage.</caption>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Form ID</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(this.props.formsStore.forms).map((key: any) => getTableRow(key, this.props.formsStore.forms[key]))}
-          </tbody>
-        </table>
+        <FilterHomePage />
       </div>
     );
   }
