@@ -1,4 +1,5 @@
 import Demographics from '../containers/Demographics';
+import Demographics1 from '../containers/PreAdmit/Demographics/Demographics1';
 import Referral from '../containers/Referral';
 import Status from '../containers/Status';
 
@@ -9,6 +10,13 @@ export const preAdmitSubStates = [
     url: '/demographics',
     parent: 'pre-admit',
     component: Demographics
+  },
+    {
+    onEnter: () => console.info('ENTER Demographics1'),
+    name: 'demographics1',
+    url: '/demographics1',
+    parent: 'pre-admit',
+    component: Demographics1
   },
   {
     onEnter: () => console.info('ENTER ref'),

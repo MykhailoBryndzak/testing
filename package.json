@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "(SET PORT=4444) && react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "clean": "rm -rf public/build lib lib-esm",
+    "build": "npm run clean && webpack",
+    "dev": "npm run build && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3011 --open"
   },
   "dependencies": {
     "@types/prop-types": "^15.5.2",
     "@uirouter/react": "^0.6.2",
     "ajv": "6.4.0",
     "core-js": "2.5.4",
+    "less": "^3.0.4",
     "localforage": "1.6.0",
     "localsync": "1.7.2",
     "mobx": "4.1.1",
@@ -37,7 +37,21 @@
     "@types/react-bootstrap": "0.32.6",
     "@types/react-dom": "16.0.4",
     "@types/react-jsonschema-form": "1.0.3",
+    "autoprefixer-loader": "^3.2.0",
+    "awesome-typescript-loader": "^5.0.0",
+    "babel-loader": "^7.1.4",
+    "css-loader": "^0.28.11",
+    "less-loader": "^4.1.0",
     "mobx-react-devtools": "^5.0.1",
-    "typescript": "2.8.1"
+    "react-hot-loader": "^4.2.0",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "svg-inline-loader": "^0.8.0",
+    "ts-loader": "^4.3.0",
+    "typescript": "2.8.1",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4",
+    "webpack-command": "^0.2.0",
+    "webpack-dev-server": "^3.1.4"
   }
 }

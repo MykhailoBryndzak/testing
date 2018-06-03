@@ -1,40 +1,38 @@
 import * as React from 'react';
 
 import './FilterHomePage.css';
-import { DropdownButton, MenuItem, Label, Button, FormControl, Checkbox } from 'react-bootstrap';
+import { Button, FormControl, Checkbox } from 'react-bootstrap';
 
 export const FilterHomePage = (props: any) => (
     <div>
-              <Checkbox>{<b>Discharge Assesments:</b>}{` (46 hidded - checkbox to display)`}</Checkbox>
+        <Checkbox>{<b>Discharge Assesments:</b>}{` (46 hidded - checkbox to display)`}</Checkbox>
 
         <div className="main-filter">
             <div className="line-first">
                 <div className="sub-line-first">
                     <label>Show: </label>
-                    <DropdownButton title="In-Progress" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">In-Progress</MenuItem>
-                        <MenuItem eventKey="2">Admit-Incoplete</MenuItem>
-                        <MenuItem eventKey="3">Admit-Complete</MenuItem>
-                    </DropdownButton>
-
-                    <DropdownButton title="Only assessments I have created" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Only assessments I have created</MenuItem>
-                        <MenuItem eventKey="2">All assessments for my site</MenuItem>
-                        <MenuItem eventKey="3">All assessments for my facility</MenuItem>
-                    </DropdownButton>
+                    <select className="form-control">
+                        <option selected={true}>In-Progress</option>
+                        <option>Admit-Incoplete</option>
+                        <option>Admit-Complete</option>
+                    </select>
+                    <select className="form-control">
+                        <option selected={true}>Only assessments I have created</option>
+                        <option>All assessments for my site</option>
+                        <option>All assessments for my facility</option>
+                    </select>
                 </div>
                 <div className="sub-line-second">
                     <label>Sort by: </label>
-                    <DropdownButton title="Date Admitted" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Date Admitted</MenuItem>
-                        <MenuItem eventKey="2">Date Created</MenuItem>
-                        <MenuItem eventKey="3">Date Denied</MenuItem>
-                    </DropdownButton>
-
-                    <DropdownButton title="Ascending" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Ascending</MenuItem>
-                        <MenuItem eventKey="1">Descending</MenuItem>
-                    </DropdownButton>
+                    <select className="form-control">
+                        <option selected={true}>Date Admitted</option>
+                        <option>Date Created</option>
+                        <option>Date Denied</option>
+                    </select>
+                    <select className="form-control">
+                        <option selected={true}>Ascending</option>
+                        <option>Descending</option>
+                    </select>
                 </div>
             </div>
 
@@ -42,35 +40,31 @@ export const FilterHomePage = (props: any) => (
                 <div className="sub-line-first">
 
                     <label>Restrict to : </label>
-
-                    <DropdownButton title="Admitted" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Admitted</MenuItem>
-                        <MenuItem eventKey="2">Didcharged</MenuItem>
-                        <MenuItem eventKey="3">Created</MenuItem>
-                        <MenuItem eventKey="4">Denied</MenuItem>
-                    </DropdownButton>
+                    <select className="form-control">
+                        <option selected={true}>Admitted</option>
+                        <option>Didcharged</option>
+                        <option>Created</option>
+                        <option>Denied</option>
+                    </select>
 
                     <label>During: </label>
-
-                    <DropdownButton title="Custom" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Last 90 days</MenuItem>
-                        <MenuItem eventKey="1">Last 365 days</MenuItem>
-                        <MenuItem eventKey="1">Cal Yr 2018</MenuItem>
-                    </DropdownButton>
-
+                    <select className="form-control">
+                        <option selected={true}>Last 90 days</option>
+                        <option>Last 365 days</option>
+                        <option>Cal Yr 2018</option>
+                    </select>
                 </div>
 
                 <div className="sub-line-second">
-
-                    <DropdownButton title="Last Name" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Last Name</MenuItem>
-                        <MenuItem eventKey="1">Patiend ID</MenuItem>
-                        <MenuItem eventKey="1">SSN</MenuItem>
-                    </DropdownButton>
+                    <select className="form-control">
+                        <option selected={true}>Last Name</option>
+                        <option>Patiend ID</option>
+                        <option>SSN</option>
+                    </select>
 
                     <label>Starting with: </label>
 
-                    <FormControl type="text" placeholder="Enter text" bsSize="sm" />
+                    <FormControl type="text" placeholder="Enter text" bsSize="sm"/>
 
                     <Button bsSize="sm">Enter</Button>
                     <Button bsSize="sm">Clear</Button>
@@ -80,7 +74,7 @@ export const FilterHomePage = (props: any) => (
 
             <div className="line-third">
                 <label>Display: </label>
-                <FormControl type="text" placeholder="50" bsSize="sm" />
+                <FormControl type="text" placeholder="50" bsSize="sm"/>
                 <label>assesments per table. </label>
                 <Button bsSize="sm">Enter</Button>
             </div>
@@ -88,20 +82,18 @@ export const FilterHomePage = (props: any) => (
             <div className="line-fourth">
                 <div className="sub-line-first">
                     <label>Load ID: </label>
-                    <FormControl type="text" placeholder="Enter text" bsSize="sm" />
+                    <FormControl type="text" placeholder="Enter text" bsSize="sm"/>
                     <label>(Patient Satisfaction Suurvey ID)</label>
                     <Button bsSize="sm">Load</Button>
                 </div>
 
                 <div className="sub-line-second">
                     <label>Provider ID: </label>
-
-                    <DropdownButton title="Eleks" id="default" bsSize="sm">
-                        <MenuItem eventKey="1">Eleks</MenuItem>
-                        <MenuItem eventKey="2">Facility 1033</MenuItem>
-                        <MenuItem eventKey="3">Facility 1034</MenuItem>
-                    </DropdownButton>
-
+                    <select className="form-control">
+                        <option selected={true}>Eleks</option>
+                        <option>Facility 1033</option>
+                        <option>Facility 1034</option>
+                    </select>
                     <label>(Superuser only)</label>
                 </div>
             </div>
