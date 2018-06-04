@@ -1,16 +1,29 @@
-.demographics {
+.referral {
   margin: 20px;
   display: flex;
   flex-direction: column;
 
-  div label.is-required::after {
-    content: "*";
-    color: red;
-  }
-
   .label-input {
     display: flex;
     flex-direction: column;
+  }
+
+  div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+  }
+
+  div input[type=text] {
+    width: 350px;
+  }
+
+  div input[type=date] {
+    width: 250px;
+  }
+
+  select {
+    width: 50%;
   }
 
   h3 {
@@ -19,14 +32,6 @@
     color: #069;
   }
 
-  div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-  }
-  div input[type=text] {
-    width: 350px;
-  }
 
   div.line-0 {
     order: 0;
@@ -42,10 +47,6 @@
     order: 2;
     display: flex;
     flex-direction: row;
-
-    input[type=date] {
-      width: auto;
-    }
   }
   div.line-3 {
     order: 3;
@@ -72,11 +73,6 @@
     order: 7;
     display: flex;
     flex-direction: row;
-
-    div {
-      display: flex;
-      flex-direction: column;
-    }
   }
   div.line-8 {
     order: 8;
@@ -101,71 +97,16 @@
   div.line-12 {
     order: 12;
     display: flex;
-    flex-direction: column;
-
-    textarea {
-      margin-bottom: 10px;
-    }
+    flex-direction: row;
   }
   div.line-13 {
     order: 13;
     display: flex;
-    flex-direction: column;
-    select {
-      width: 120px;
-    }
-    textarea {
-      margin-top: 10px;
-    }
+    flex-direction: row;
   }
   div.line-14 {
     order: 14;
     display: flex;
     flex-direction: row;
-    select {
-      width: 120px;
-    }
   }
-  div.line-15 {
-    order: 15;
-    display: flex;
-    flex-direction: row;
-  }
-  div.line-16 {
-    order: 16;
-    display: flex;
-    flex-direction: row;
-    textarea {
-      width: 400px;
-    }
-  }
-  div.line-17 {
-    order: 17;
-    display: flex;
-    flex-direction: row;
-  }
-  div.line-18 {
-    order: 18;
-    display: flex;
-    flex-direction: row;
-
-    select {
-      width: 120px;
-    }
-  }
-  div.line-19 {
-    order: 17;
-    display: flex;
-    flex-direction: row;
-  }
-  div.line-20 {
-    order: 18;
-    display: flex;
-    flex-direction: row;
-
-    select {
-      width: 120px;
-    }
-  }
-
 }
