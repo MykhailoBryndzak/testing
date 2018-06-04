@@ -8,6 +8,10 @@
     flex-direction: column;
 }
 
+.main-filter div {
+    margin: 2px;
+}
+
 div.line-first {
     order: 0;
     display: flex;
