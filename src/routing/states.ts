@@ -1,9 +1,8 @@
-import * as React from 'react';
 import { Layout } from '../components/Layout/Layout';
 import { SideNav } from '../components/side-nav/Side-Nav';
 import PreAdmit from '../containers/PreAdmit/PreAdmit';
 import PreAdmitManagement from '../containers/PreAdmit/PreAdmitManagement';
-import { AdmitPage } from '../containers/Admit/Admit';
+import AdmitPage  from '../containers/Admit/Admit1';
 import AdmitManagement from '../containers/Admit/AdmitManagement';
 import { HomePage } from '../containers/Home/Home';
 import { preAdmitSubStates } from './pre-admit.sub.states';
@@ -45,8 +44,8 @@ export const states: any = [
     onEnter: (transition: any, state: any, params: any) => {
       console.info('ENTER PRE-ADMIT Management', params);
     },
-    name: 'pre-admit-managenet',
-    url: 'pre-admit-managenet',
+    name: 'pre-admit-management',
+    url: 'pre-admit-management',
     parent: 'root',
     views: {
       'content': { component: PreAdmitManagement },
@@ -70,8 +69,8 @@ export const states: any = [
     onEnter: (transition: any, state: any, params: any) => {
       console.info('ENTER ADMIT', params);
     },
-    name: 'admit-managenet',
-    url: 'admit-managenet',
+    name: 'admit-management',
+    url: 'admit-management',
     parent: 'root',
     views: {
       'content': { component: AdmitManagement },

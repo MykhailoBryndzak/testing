@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {FormControl} from 'react-bootstrap';
-import {inject, observer} from 'mobx-react';
+import { FormControl } from 'react-bootstrap';
+import { inject, observer } from 'mobx-react';
 import * as mobx from 'mobx';
 import './Demographics.less';
 
@@ -30,7 +30,7 @@ class Demographics extends React.Component<Props, State> {
             <div className="demographics">
                 {/*-------------------------Patient Identification*-----------------------------*/}
 
-                <h3>Patient Identification*</h3>
+                <h4>Patient Identification*</h4>
                 <form>
                     <div className="line-0">
                         <div className="label-input">
@@ -62,7 +62,7 @@ class Demographics extends React.Component<Props, State> {
                             <select className="form-control input-sm">
                                 <option>Male</option>
                                 <option>Female</option>
-                                <option selected={true}>unspesified</option>
+                                <option selected={true}>Unspecified</option>
                             </select>
                         </div>
                     </div>
@@ -110,7 +110,6 @@ class Demographics extends React.Component<Props, State> {
 
                     <div className="line-7">
                         <div className="label-input">
-
                             <label>Race / Ethnicity</label>
                             <div>
                                 <span>
@@ -149,7 +148,7 @@ class Demographics extends React.Component<Props, State> {
                     </div>
                     {/*-------------------------Patient Identification-----------------------------*/}
 
-                    <h3>Patient Network</h3>
+                    <h4>Patient Network</h4>
 
                     <div className="line-8">
                         <div className="label-input">
@@ -218,21 +217,21 @@ class Demographics extends React.Component<Props, State> {
                             <select className="form-control input-sm">
                                 <option>Yes</option>
                                 <option>No</option>
-                                <option selected={true}>unspecified</option>
+                                <option selected={true}>Unspecified</option>
                             </select>
                             <FormControl componentClass="textarea" placeholder="Describe Advanced Directives"/>
                         </div>
                     </div>
 
                     {/*-------------------------Patient Representation or Power Of Attorney-----------------------------*/}
-                    <h3>Patient Representation or Power Of Attorney</h3>
+                    <h4>Patient Representation or Power Of Attorney</h4>
 
                     <div className="line-14">
                         <div className="label-input">
                             <select className="form-control input-sm">
                                 <option>Yes</option>
                                 <option>No</option>
-                                <option selected={true}>unspecified</option>
+                                <option selected={true}>Unspecified</option>
                             </select>
 
                             <label>Name</label>
@@ -264,7 +263,7 @@ class Demographics extends React.Component<Props, State> {
                         </div>
                     </div>
                     {/*-------------------------Pre-Hospital Residance-----------------------------*/}
-                    <h3>Pre-Hospital Residance</h3>
+                    <h4>Pre-Hospital Residance</h4>
                     <div className="line-17">
                         <div className="label-input">
                             <label>Pre-Hospital Living Setting</label>
@@ -288,14 +287,14 @@ class Demographics extends React.Component<Props, State> {
                     <FormControl componentClass="textarea" placeholder="Enter Patient Network Notes"/>
 
                     {/*-------------------------Language / Communication Needs-----------------------------*/}
-                    <h3>Language / Communication Needs</h3>
+                    <h4>Language / Communication Needs</h4>
                     <div className="line-18">
                         <div className="label-input">
                             <label>English Speaking</label>
                             <select className="form-control input-sm">
                                 <option>Yes</option>
                                 <option>No</option>
-                                <option selected={true}>unspecified</option>
+                                <option selected={true}>Unspecified</option>
                             </select>
                         </div>
 
@@ -324,7 +323,7 @@ class Demographics extends React.Component<Props, State> {
                     </div>
 
                     {/*-------------------------Religious / Cultural Considerations-----------------------------*/}
-                    <h3>Religious / Cultural Considerations</h3>
+                    <h4>Religious / Cultural Considerations</h4>
                     <div className="line-20">
                         <div className="label-input">
                             <label>Religion</label>

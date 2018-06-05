@@ -65,7 +65,7 @@ export class HomePage extends React.Component<Props> {
                   accessor: 'lastName'
                 },
                 {
-                  Header: 'Genger',
+                  Header: 'Gender',
                   accessor: 'gender'
                 },
                 {

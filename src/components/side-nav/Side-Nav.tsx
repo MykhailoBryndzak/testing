@@ -20,11 +20,11 @@ const navItems = [
         key: 2,
         url: 'pre-admit',
         params: { id: 'new' },
-        name: 'Pre-Admition'
+        name: 'Pre-Admission'
       },
       {
         key: 1,
-        url: 'pre-admit-managenet',
+        url: 'pre-admit-management',
         name: 'Management'
       }
     ]
@@ -39,11 +39,11 @@ const navItems = [
         key: 2,
         url: 'admit',
         params: { id: 'new' },
-        name: 'Admition'
+        name: 'Admission'
       },
       {
         key: 1,
-        url: 'admit-managenet',
+        url: 'admit-management',
         name: 'Management'
       }
     ]

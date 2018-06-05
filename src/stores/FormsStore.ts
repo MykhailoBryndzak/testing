@@ -15,12 +15,12 @@ export class FormsStore {
       [id]: {}
     };
   }
+
   upsertSection(id: string, form: any) {
     this.forms[id] = form;
   }
 
   initHomePage() {
-    let self1 = this;
     this.formsService.fetchPreAdmits(
       (data: any, context: any) => {
         console.info('data', data);

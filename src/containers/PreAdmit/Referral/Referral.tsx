@@ -27,7 +27,7 @@ class Referral extends React.Component<Props, State> {
             <div className="referral">
                 {/*-------------------------Referral / Payer-----------------------------*/}
 
-                <h3>Referral / Payer</h3>
+                <h4>Referral / Payer</h4>
                 <form>
 
                     <div className="label-input">
@@ -35,11 +35,10 @@ class Referral extends React.Component<Props, State> {
                         <FormControl type="date" placeholder="Enter Date of Referral" bsSize="sm"/>
                     </div>
 
-
-                    <h3>Additional Admission Types</h3>
+                    <h4>Additional Admission Types</h4>
 
                     <select className="form-control input-sm">
-                        <option value="" disabled selected>Select Admission Type</option>
+                        <option value="" disabled={true} selected={true}>Select Admission Type</option>
                         <option>Cancer</option>
                         <option>Cardiovascular</option>
                         <option>CVA</option>
@@ -57,7 +56,7 @@ class Referral extends React.Component<Props, State> {
 
                     {/*-------------------------Referring Source Information-----------------------------*/}
 
-                    <h3>Referring Source Information</h3>
+                    <h4>Referring Source Information</h4>
 
                     <div>
                         <div className="line-0">
@@ -69,7 +68,7 @@ class Referral extends React.Component<Props, State> {
                             <div className="label-input">
                                 <label> (Admitted Form) Referring Facility Type: </label>
                                 <select className="form-control input-sm">
-                                    <option value="" disabled selected>Select Referring Facility Type</option>
+                                    <option value="" disabled={true} selected={true}>Select Referring Facility Type</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -117,7 +116,7 @@ class Referral extends React.Component<Props, State> {
                     </div>
                     {/*-------------------------Patient Medicare / Medicaid Number-----------------------------*/}
 
-                    <h3>Patient Medicare / Medicaid Number</h3>
+                    <h4>Patient Medicare / Medicaid Number</h4>
                     <div>
                         <div className="line-4">
                             <div className="label-input">
@@ -134,7 +133,7 @@ class Referral extends React.Component<Props, State> {
 
                     {/*-------------------------Primary Insurance-----------------------------*/}
 
-                    <h3>Primary Insurance</h3>
+                    <h4>Primary Insurance</h4>
                     <div>
                         <div className="line-5">
                             <div className="label-input">
@@ -210,7 +209,7 @@ class Referral extends React.Component<Props, State> {
                     </div>
                     {/*-------------------------Secondary Insurance-----------------------------*/}
 
-                    <h3>Secondary Insurance</h3>
+                    <h4>Secondary Insurance</h4>
                     <div>
                         <div className="line-10">
                             <div className="label-input">
