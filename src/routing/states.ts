@@ -1,7 +1,7 @@
 import { Layout } from '../components/Layout/Layout';
 import { SideNav } from '../components/side-nav/Side-Nav';
 import PreAdmit from '../containers/PreAdmit/PreAdmit';
-import PreAdmitManagement from '../containers/PreAdmit/PreAdmitManagement';
+import PreAdmitManagement from '../containers/PreAdmit/PreAdmitManagement/PreAdmitManagement';
 import AdmitPage  from '../containers/Admit/Admit1';
 import AdmitManagement from '../containers/Admit/AdmitManagement';
 import { HomePage } from '../containers/Home/Home';

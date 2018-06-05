@@ -1,6 +1,5 @@
 import Demographics from '../containers/PreAdmit/Demographics/Demographics';
 import Referral from '../containers/PreAdmit/Referral/Referral';
-import Status from '../containers/Status';
 
 export const preAdmitSubStates = [
     {
