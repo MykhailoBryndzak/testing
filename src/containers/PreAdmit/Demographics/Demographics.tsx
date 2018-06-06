@@ -2,7 +2,7 @@ import * as React from 'react';
 import {inject, observer} from 'mobx-react';
 import './Demographics.less';
 
-const KEY: string = 'DEMOGRAPHICS';
+const KEY = 'DEMOGRAPHICS';
 
 interface Props {
     preAdmitStore: any;
@@ -21,7 +21,7 @@ class Demographics extends React.Component<Props, State> {
         super(props);
     }
 
-    render() {
+    render(): any {
         console.info(333, this);
 
         return (

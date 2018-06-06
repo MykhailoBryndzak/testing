@@ -9,20 +9,20 @@ export class PreAdmitStore {
     private preAdmitService: PreAdmitService
   ) { }
 
-  addPreAdmit(id: string) {
+  addPreAdmit(id: string): void {
     this.preAdmit = {
       ...this.preAdmit,
       [id]: {}
     };
   }
 
-  initHomePage() {
+  initHomePage(): void {
     this.preAdmitService.fetchPreAdmits(
       (data: any, context: any) => {
         console.info('data', data);
 
         data.map((element: any) => {
-          context.addPreAdmit(element.preAdmitId)
+          context.addPreAdmit(element.preAdmitId);
           context.preAdmit[element.preAdmitId] = element;
         });
 

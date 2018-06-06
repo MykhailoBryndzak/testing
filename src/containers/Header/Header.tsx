@@ -12,7 +12,7 @@ interface HeaderProps {
 @inject('statusStore')
 @observer
 class Header extends React.Component<HeaderProps> {
-  render() {
+  render(): any {
     const { online } = this.props.statusStore;
 
     return (

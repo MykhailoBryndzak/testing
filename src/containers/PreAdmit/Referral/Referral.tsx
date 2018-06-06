@@ -23,7 +23,7 @@ class Referral extends React.Component<Props, State> {
         super(props);
     }
 
-    render() {
+    render(): any {
         return (
             <div className="referral">
                 {/*-------------------------Referral / Payer-----------------------------*/}

@@ -8,7 +8,7 @@ export class ApiService {
     private _fetch: typeof window.fetch
   ) { }
 
-  _handleOkOrFailure(res: Response) {
+  _handleOkOrFailure(res: Response): Promise<Response> | Promise<never> {
     return res.ok ? Promise.resolve(res) : Promise.reject(res);
   }
 

@@ -20,12 +20,12 @@ export class HomePage extends React.Component<Props> {
     super(props, context);
   }
 
-  componentWillMount() {
+  componentWillMount(): void {
     this.props.preAdmitStore.initHomePage();
     this.props.admitStore.initHomePage();
   }
 
-  render() {
+  render(): any {
     let self = this;
     let res: any = [];
 

@@ -9,14 +9,14 @@ export class AdmitStore {
         private admitService: AdmitService
     ) { }
 
-    addAdmit(id: string) {
+    addAdmit(id: string): void {
         this.admit = {
             ...this.admit,
             [id]: {}
         };
     }
 
-    initHomePage() {
+    initHomePage(): void {
         this.admitService.fetchAdmits(
             (data: any, context: any) => {
                 console.info('data', data);

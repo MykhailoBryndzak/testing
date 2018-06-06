@@ -1,7 +1,7 @@
 import { observable } from 'mobx';
 
 export class StatusStore {
-  @observable online: boolean = navigator.onLine;
+  @observable online = navigator.onLine;
 
   constructor() {
     window.addEventListener('offline', () => { this.online = false; });

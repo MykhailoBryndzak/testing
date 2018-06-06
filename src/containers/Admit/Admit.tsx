@@ -4,7 +4,7 @@ import { inject, observer} from 'mobx-react';
 import * as mobx from 'mobx';
 import './Admit.less';
 
-const KEY: string = 'DEMOGRAPHICS';
+const KEY = 'DEMOGRAPHICS';
 
 interface Props {
     admitStore: any;
@@ -26,7 +26,7 @@ class Admit extends React.Component<Props, State> {
         }
     }
 
-    render() {
+    render(): any {
         return (
             <div className="main-admit">
                 <h3>Admit</h3>

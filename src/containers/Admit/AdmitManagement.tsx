@@ -7,7 +7,7 @@ class PreAdmitManagement extends React.Component {
     super(props);
   }
 
-  render() {
+  render(): any {
     return (
       <div id="AdmitManagement">
         <h3>Admit Management</h3>

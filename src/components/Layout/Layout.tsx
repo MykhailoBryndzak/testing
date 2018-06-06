@@ -5,7 +5,7 @@ import Header from '../../containers/Header/Header';
 import { UIView } from '@uirouter/react';
 
 export class Layout extends React.Component {
-  render() {
+  render(): any {
     return (
       <div className="layout-container" >
         <Header />

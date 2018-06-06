@@ -19,7 +19,7 @@ class PreAdmit extends React.Component<Props> {
     }
   }
 
-  render() {
+  render(): any {
     return (
       <div>
         <NavTabsCustom />
