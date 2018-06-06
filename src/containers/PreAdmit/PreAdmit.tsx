@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { UIView } from '@uirouter/react';
 import { inject, observer } from 'mobx-react';
-import { NavTabsCustom } from '../../components/Nav/NavTabsCustom';
+import { NavTabsCustom } from './Nav/NavTabsCustom';
 
 interface Props {
-  formsStore: any;
+  preAdmitStore: any;
   $stateParams: { id: string };
 }
 
-@inject('formsStore')
+@inject('preAdmitStore')
 @observer
 class PreAdmit extends React.Component<Props> {
   constructor(props: any) {
     super(props);
 
-    if (!this.props.formsStore.forms[this.props.$stateParams.id]) {
-      this.props.formsStore.addForm(this.props.$stateParams.id);
+    if (!this.props.preAdmitStore.preAdmit[this.props.$stateParams.id]) {
+      this.props.preAdmitStore.addPreAdmit(this.props.$stateParams.id);
     }
   }
 

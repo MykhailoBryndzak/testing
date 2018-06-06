@@ -2,7 +2,7 @@ import { Layout } from '../components/Layout/Layout';
 import { SideNav } from '../components/side-nav/Side-Nav';
 import PreAdmit from '../containers/PreAdmit/PreAdmit';
 import PreAdmitManagement from '../containers/PreAdmit/PreAdmitManagement/PreAdmitManagement';
-import AdmitPage  from '../containers/Admit/Admit1';
+import AdmitPage  from '../containers/Admit/Admit';
 import AdmitManagement from '../containers/Admit/AdmitManagement';
 import { HomePage } from '../containers/Home/Home';
 import { preAdmitSubStates } from './pre-admit.sub.states';
@@ -26,14 +26,14 @@ export const states: any = [
   },
   {
     onEnter: (transition: any, state: any, params: any) => {
-      console.info('ENTER PRE-ADMIT', params);
+      console.info('ENTER PRE-ADMIT111', params);
     },
     name: 'pre-admit',
     url: 'pre-admit/:id',
     redirectTo: 'demographics',
     parent: 'root',
     params: {
-      id: () => Date.now().toString()
+      id: 'new'
     },
     views: {
       'content': { component: PreAdmit },

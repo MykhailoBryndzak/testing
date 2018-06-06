@@ -1,4 +1,3 @@
-import { UISref } from '@uirouter/react';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import ReactTable from 'react-table';
@@ -6,10 +5,11 @@ import 'react-table/react-table.css';
 import { FilterHomePage } from '../../components/FilterHomePage/FilterHomePage';
 import * as PropTypes from 'prop-types';
 interface Props {
-  formsStore: any;
+    preAdmitStore: any;
+    admitStore: any;
 }
 
-@inject('formsStore')
+@inject('preAdmitStore', 'admitStore')
 @observer
 export class HomePage extends React.Component<Props> {
   static contextTypes: React.ValidationMap<any> = {
@@ -21,15 +21,16 @@ export class HomePage extends React.Component<Props> {
   }
 
   componentWillMount() {
-    this.props.formsStore.initHomePage();
+    this.props.preAdmitStore.initHomePage();
+    this.props.admitStore.initHomePage();
   }
 
   render() {
     let self = this;
     let res: any = [];
 
-    Object.keys(self.props.formsStore.forms).forEach((key, index) => {
-      let info = self.props.formsStore.forms[key];
+    Object.keys(self.props.preAdmitStore.preAdmit).forEach((key, index) => {
+      let info = self.props.preAdmitStore.preAdmit[key];
 
       if (info) {
         res.push(info);
@@ -50,7 +51,7 @@ export class HomePage extends React.Component<Props> {
           data={res}
           columns={[
             {
-              Header: 'Pre-Admit forms in local storage',
+              Header: 'Pre-Admits',
               columns: [
                 {
                   Header: 'Key',

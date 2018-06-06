@@ -1,6 +1,6 @@
 import { ApiService } from './ApiService';
 
-export interface FormModel {
+export interface PreAdmitModel {
   formId: string;
   model: any;
 }
@@ -11,7 +11,7 @@ export interface PreAdmitForm {
   STATUS: any;
 }
 
-export class FormsService {
+export class PreAdmitService {
   constructor(
     private api: ApiService
   ) { }

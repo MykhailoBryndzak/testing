@@ -6,6 +6,7 @@ import './Referral.less';
 const KEY = 'REFERRAL';
 
 interface Props {
+    preAdmitStore: any;
     $stateParams: {
         id: string
     };
@@ -15,7 +16,7 @@ interface State {
     form: any;
 }
 
-@inject('formsStore')
+@inject('preAdmitStore')
 @observer
 class Referral extends React.Component<Props, State> {
     constructor(props: any) {

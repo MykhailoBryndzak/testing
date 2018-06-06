@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { FormControl } from 'react-bootstrap';
-import { inject, observer } from 'mobx-react';
-import * as mobx from 'mobx';
+import {inject, observer} from 'mobx-react';
 import './Demographics.less';
 
 const KEY: string = 'DEMOGRAPHICS';
 
 interface Props {
-    formsStore: any;
+    preAdmitStore: any;
     $stateParams: {
         id: string
     };
@@ -16,7 +14,7 @@ interface Props {
 interface State {
 }
 
-@inject('formsStore')
+@inject('preAdmitStore')
 @observer
 class Demographics extends React.Component<Props, State> {
     constructor(props: any) {
@@ -24,38 +22,77 @@ class Demographics extends React.Component<Props, State> {
     }
 
     render() {
+        console.info(333, this);
 
         return (
 
             <div className="demographics">
-                {/*-------------------------Patient Identification*-----------------------------*/}
+                <div>
+                    {/*-------------------------Patient Identification*-----------------------------*/}
 
-                <h4>Patient Identification*</h4>
-                <form>
+                    <h4>Patient Identification*</h4>
                     <div className="line-0">
                         <div className="label-input">
                             <label className="is-required"> First Name </label>
-                            <FormControl type="text" placeholder="Enter First Name" bsSize="sm" required={true}/>
+                            <input
+                                onChange={function () {
+                                    console.info('First Name');
+                                }}
+                                type="text"
+                                placeholder="Enter First Name"
+                                className="form-control input-sm"
+                                required={true}
+                            />
                         </div>
                         <div className="label-input">
                             <label className="is-required"> Middle Initial </label>
-                            <FormControl type="text" placeholder="Enter Middle Initial" bsSize="sm" required={true}/>
+                            <input
+                                onChange={function () {
+                                    console.info('Middle Initial');
+                                }}
+                                type="text"
+                                placeholder="Enter Middle Initial"
+                                className="form-control input-sm"
+                                required={true}
+                            />
                         </div>
                     </div>
                     <div className="line-1">
                         <div className="label-input">
                             <label className="is-required"> Last Name </label>
-                            <FormControl type="text" placeholder="Enter Last Name" bsSize="sm" required={true}/>
+                            <input
+                                onChange={function () {
+                                    console.info('Last Name');
+                                }}
+                                type="text"
+                                placeholder="Enter Last Name"
+                                className="form-control input-sm"
+                                required={true}
+                            />
                         </div>
                         <div className="label-input">
                             <label> Suffix </label>
-                            <FormControl type="text" placeholder="Enter Suffix" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('Suffix');
+                                }}
+                                type="text"
+                                placeholder="Enter Suffix"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
                     <div className="line-2">
                         <div className="label-input">
                             <label> Birth Date </label>
-                            <FormControl type="date" placeholder="Enter Birth Date" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info(' Birth Date');
+                                }}
+                                type="date"
+                                placeholder="Enter Birth Date"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
                             <label> Gender </label>
@@ -69,42 +106,98 @@ class Demographics extends React.Component<Props, State> {
                     <div className="line-3">
                         <div className="label-input">
                             <label> Social Security Number </label>
-                            <FormControl type="text" placeholder="Enter Social Security Number" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info(' Social Security Number');
+                                }}
+                                type="text"
+                                placeholder="Enter Social Security Number"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
                             <label> Medicare Number </label>
-                            <FormControl type="text" placeholder="Enter Medicare Number" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info(' Medicare Number ');
+                                }}
+                                type="text"
+                                placeholder="Enter Medicare Number"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
                     <div className="line-4">
                         <div className="label-input">
-                            <label> Medicaide Number </label>
-                            <FormControl type="text" placeholder="Enter Medicaide Number" bsSize="sm"/>
+                            <label> Medicaid Number </label>
+                            <input
+                                onChange={function () {
+                                    console.info('Medicaid Number');
+                                }}
+                                type="text"
+                                placeholder="Enter Medicaid Number"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
                             <label> Address </label>
-                            <FormControl type="text" placeholder="Enter Address" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('Address');
+                                }}
+                                type="text"
+                                placeholder="Enter Address"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
                     <div className="line-5">
                         <div className="label-input">
                             <label> City </label>
-                            <FormControl type="text" placeholder="Enter City" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('City');
+                                }}
+                                type="text"
+                                placeholder="Enter City"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
 
                             <label> State </label>
-                            <FormControl type="text" placeholder="Enter State" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('State');
+                                }}
+                                type="text"
+                                placeholder="Enter State"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
                     <div className="line-6">
                         <div className="label-input">
                             <label> ZIP </label>
-                            <FormControl type="text" placeholder="Enter ZIP" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('ZIP');
+                                }}
+                                type="text"
+                                placeholder="Enter ZIP"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
                             <label> Telephone # </label>
-                            <FormControl type="text" placeholder="Enter Telephone" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('Telephone');
+                                }}
+                                type="text"
+                                placeholder="Enter Telephone"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
@@ -113,26 +206,69 @@ class Demographics extends React.Component<Props, State> {
                             <label>Race / Ethnicity</label>
                             <div>
                                 <span>
-                                    <input type="checkbox" name="Ethnicity" value="AmericanIndian/AlaskaNative"/> American Indian or Alaska
+                                    <input
+                                        onChange={function () {
+                                            console.info('AmericanIndian');
+                                        }}
+                                        type="checkbox"
+                                        name="Ethnicity"
+                                        value="AmericanIndian/AlaskaNative"
+                                    /> American Indian or Alaska
                                     Native
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="Ethnicity" value="Asian"/> Asian </span>
+                                    <input
+                                        onChange={function () {
+                                            console.info('Asian');
+                                        }}
+                                        type="checkbox"
+                                        name="Ethnicity"
+                                        value="Asian"
+                                    /> Asian </span>
                                 <span>
-                                    <input type="checkbox" name="Ethnicity" value="Black/AfricanAmerican"/> Black or
+                                    <input
+                                        onChange={function () {
+                                            console.info('AfricanAmerican');
+                                        }}
+                                        type="checkbox"
+                                        name="Ethnicity"
+                                        value="Black/AfricanAmerican"
+                                    /> Black or
                                     African American
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="Ethnicity" value="Hispanic/Latino"/> Hispanic or
+                                    <input
+                                        onChange={function () {
+                                            console.info('Hispanic');
+                                        }}
+                                        type="checkbox"
+                                        name="Ethnicity"
+                                        value="Hispanic/Latino"
+                                    /> Hispanic or
                                     Latino
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="Ethnicity"
-                                           value="NativeHavaiian/OtherPacificIslander"/>
+                                    <input
+
+                                        onChange={function () {
+                                            console.info('NativeHawaiian');
+                                        }}
+                                        type="checkbox"
+                                        name="Ethnicity"
+                                        value="NativeHawaiian/OtherPacificIslander"
+                                    />
                                      Native Havaiian or Other Pacific Islander
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="Ethnicity" value="White"/> White
+                                    <input
+
+                                        onChange={function () {
+                                            console.info('White');
+                                        }}
+                                        type="checkbox"
+                                        name="Ethnicity"
+                                        value="White"
+                                    /> White
                                 </span>
                             </div>
                         </div>
@@ -154,12 +290,29 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Next of Kin Name </label>
-                            <FormControl type="text" placeholder="Enter Next of Kin Name" bsSize="sm"/>
+                            <input
+
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Next of Kin Name"
+
+                                className="form-control input-sm"
+
+                            />
                         </div>
                         <div className="label-input">
 
                             <label> Next of Kin Relationship </label>
-                            <FormControl type="text" placeholder="Enter Next of Kin Relationship" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Next of Kin Relationship"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
@@ -167,12 +320,26 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Next of Kin Telephone # </label>
-                            <FormControl type="text" placeholder="Enter Next of Kin Telephone" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Next of Kin Telephone"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
 
                             <label> Caregiver Name </label>
-                            <FormControl type="text" placeholder="Enter Caregiver Name" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Caregiver Name"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
@@ -180,12 +347,26 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Caregiver Relationship </label>
-                            <FormControl type="text" placeholder="Enter Caregiver Relationship" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Caregiver Relationship"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
 
                             <label> Caregiver Telephone # </label>
-                            <FormControl type="text" placeholder="Enter Caregiver Telephone" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Caregiver Telephone"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
@@ -193,12 +374,26 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Primary Care Provider </label>
-                            <FormControl type="text" placeholder="Enter Primary Care Provider" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Primary Care Provider"
+                                className="form-control input-sm"
+                            />
                         </div>
                         <div className="label-input">
 
                             <label> Primary Care Telephone # </label>
-                            <FormControl type="text" placeholder="Enter Primary Care Telephone" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Primary Care Telephone"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
@@ -206,7 +401,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Code Status </label>
-                            <FormControl componentClass="textarea" placeholder="Enter Code Status"/>
+                            <textarea className="form-control input-sm" placeholder="Enter Code Status"/>
                         </div>
                     </div>
 
@@ -219,7 +414,7 @@ class Demographics extends React.Component<Props, State> {
                                 <option>No</option>
                                 <option selected={true}>Unspecified</option>
                             </select>
-                            <FormControl componentClass="textarea" placeholder="Describe Advanced Directives"/>
+                            <textarea className="form-control input-sm" placeholder="Describe Advanced Directives"/>
                         </div>
                     </div>
 
@@ -235,31 +430,52 @@ class Demographics extends React.Component<Props, State> {
                             </select>
 
                             <label>Name</label>
-                            <FormControl type="text" placeholder="Enter Name" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Name"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
                     <div className="line-15">
                         <div className="label-input">
                             <label>Relationship</label>
-                            <FormControl type="text" placeholder="Enter Relationship" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Relationship"
+                                className="form-control input-sm"
+                            />
                         </div>
 
                         <div className="label-input">
                             <label>Telephone #</label>
-                            <FormControl type="text" placeholder="Enter Telephone" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Telephone"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
 
                     <div className="line-16">
                         <div className="label-input">
                             <label>Notes</label>
-                            <FormControl componentClass="textarea" placeholder="Enter Notes"/>
+                            <textarea className="form-control input-sm" placeholder="Enter Notes"/>
                         </div>
 
                         <div className="label-input">
                             <label>Patient Network Notes</label>
-                            <FormControl componentClass="textarea" placeholder="Enter Patient Network Notes"/>
+                            <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
                         </div>
                     </div>
                     {/*-------------------------Pre-Hospital Residance-----------------------------*/}
@@ -284,7 +500,7 @@ class Demographics extends React.Component<Props, State> {
                     </div>
 
                     <label>Pre-Hospital Residance Notes</label>
-                    <FormControl componentClass="textarea" placeholder="Enter Patient Network Notes"/>
+                    <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
 
                     {/*-------------------------Language / Communication Needs-----------------------------*/}
                     <h4>Language / Communication Needs</h4>
@@ -309,17 +525,31 @@ class Demographics extends React.Component<Props, State> {
                     <div className="line-19">
                         <div className="label-input">
                             <label>Preferred Language</label>
-                            <FormControl type="text" placeholder="Enter Preferred Language" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Preferred Language"
+                                className="form-control input-sm"
+                            />
                         </div>
 
                         <div className="label-input">
                             <label>Preferred Written Language</label>
-                            <FormControl type="text" placeholder="Enter Preferred Written Language" bsSize="sm"/>
+                            <input
+                                onChange={function () {
+                                    console.info('');
+                                }}
+                                type="text"
+                                placeholder="Enter Preferred Written Language"
+                                className="form-control input-sm"
+                            />
                         </div>
                     </div>
                     <div className="label-input">
                         <label>Other Communication Needs</label>
-                        <FormControl componentClass="textarea" placeholder="Enter Patient Network Notes"/>
+                        <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
                     </div>
 
                     {/*-------------------------Religious / Cultural Considerations-----------------------------*/}
@@ -333,14 +563,10 @@ class Demographics extends React.Component<Props, State> {
                                 <option selected={true}>None</option>
                             </select>
                         </div>
-                        <FormControl componentClass="textarea" placeholder="Enter Patient Network Notes"/>
+                        <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
                     </div>
-
-                    <button className="btn btn-primary" type="submit">Save Demographics</button>
-
-                </form>
+                </div>
             </div>
-
         );
     }
 }

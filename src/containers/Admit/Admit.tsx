@@ -7,7 +7,7 @@ import './Admit.less';
 const KEY: string = 'DEMOGRAPHICS';
 
 interface Props {
-    formsStore: any;
+    admitStore: any;
     $stateParams: {
         id: string
     };
@@ -16,11 +16,14 @@ interface Props {
 interface State {
 }
 
-@inject('formsStore')
+@inject('admitStore')
 @observer
 class Admit extends React.Component<Props, State> {
     constructor(props: any) {
         super(props);
+        if (!this.props.admitStore.admit[this.props.$stateParams.id]) {
+            this.props.admitStore.addAdmit(this.props.$stateParams.id);
+        }
     }
 
     render() {

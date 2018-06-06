@@ -13,7 +13,7 @@ class PreAdmitManagement extends React.Component {
         <h3>Admit Management</h3>
         <span>{'LTRAX - PATIENT RECORD'}</span>
         <table className="table table-hover"> 
-          <caption>Admit forms in local storage.</caption> 
+          <caption>Admits.</caption>
           <tbody> 
             <tr>
                 <th scope="">{'Facility'}</th>

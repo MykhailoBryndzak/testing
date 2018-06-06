@@ -9,9 +9,8 @@ const navItems = [
     name: 'HOME'
   },
   {
-    key: 2,
+    key: 3,
     url: 'pre-admit',
-    // params: { id: Date.now() },
     name: 'PRE-ADMIT',
     options: {reload: true},
 
@@ -19,7 +18,6 @@ const navItems = [
       {
         key: 2,
         url: 'pre-admit',
-        params: { id: 'new' },
         name: 'Pre-Admission'
       },
       {
@@ -38,7 +36,6 @@ const navItems = [
       {
         key: 2,
         url: 'admit',
-        params: { id: 'new' },
         name: 'Admission'
       },
       {
