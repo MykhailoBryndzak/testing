@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start": "npm run build && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 8080 --open"
+    "start": "npm run build && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3011 --open"
   },
   "dependencies": {
     "@types/prop-types": "^15.5.2",
