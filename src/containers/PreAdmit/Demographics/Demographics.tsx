@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
 import './Demographics.less';
+import {object, string} from "prop-types";
 
 const KEY = 'DEMOGRAPHICS';
 
@@ -23,7 +24,11 @@ class Demographics extends React.Component<Props, State> {
 
     render(): any {
         console.info(333, this);
+        let self = this;
 
+        let currentPreAdmit = self.props.preAdmitStore.preAdmit[self.props.$stateParams.id];
+
+        console.info(444, currentPreAdmit);
         return (
 
             <div className="demographics">
@@ -35,8 +40,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label className="is-required"> First Name </label>
                             <input
-                                onChange={function () {
-                                    console.info('First Name');
+                                value={currentPreAdmit.firstName}
+                                onChange={() => {
+                                    console.info('First Name', self);
                                 }}
                                 type="text"
                                 placeholder="Enter First Name"
@@ -47,7 +53,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label className="is-required"> Middle Initial </label>
                             <input
-                                onChange={function () {
+                                value={currentPreAdmit.middleInitial}
+
+                                onChange={() => {
                                     console.info('Middle Initial');
                                 }}
                                 type="text"
@@ -61,7 +69,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label className="is-required"> Last Name </label>
                             <input
-                                onChange={function () {
+                                value={currentPreAdmit.lastName}
+                                onChange={() => {
                                     console.info('Last Name');
                                 }}
                                 type="text"
@@ -73,7 +82,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Suffix </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('Suffix');
                                 }}
                                 type="text"
@@ -86,7 +95,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Birth Date </label>
                             <input
-                                onChange={function () {
+                                value={currentPreAdmit.birthDate}
+                                onChange={() => {
                                     console.info(' Birth Date');
                                 }}
                                 type="date"
@@ -107,7 +117,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Social Security Number </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info(' Social Security Number');
                                 }}
                                 type="text"
@@ -118,7 +128,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Medicare Number </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info(' Medicare Number ');
                                 }}
                                 type="text"
@@ -131,7 +141,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Medicaid Number </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('Medicaid Number');
                                 }}
                                 type="text"
@@ -142,7 +152,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Address </label>
                             <input
-                                onChange={function () {
+                                value={currentPreAdmit.address}
+                                onChange={() => {
                                     console.info('Address');
                                 }}
                                 type="text"
@@ -155,7 +166,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> City </label>
                             <input
-                                onChange={function () {
+                                value={currentPreAdmit.city}
+                                onChange={() => {
                                     console.info('City');
                                 }}
                                 type="text"
@@ -167,7 +179,8 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> State </label>
                             <input
-                                onChange={function () {
+                                value={currentPreAdmit.state}
+                                onChange={() => {
                                     console.info('State');
                                 }}
                                 type="text"
@@ -180,7 +193,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> ZIP </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('ZIP');
                                 }}
                                 type="text"
@@ -191,7 +204,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Telephone # </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('Telephone');
                                 }}
                                 type="text"
@@ -207,7 +220,7 @@ class Demographics extends React.Component<Props, State> {
                             <div>
                                 <span>
                                     <input
-                                        onChange={function () {
+                                        onChange={() => {
                                             console.info('AmericanIndian');
                                         }}
                                         type="checkbox"
@@ -218,7 +231,7 @@ class Demographics extends React.Component<Props, State> {
                                 </span>
                                 <span>
                                     <input
-                                        onChange={function () {
+                                        onChange={() => {
                                             console.info('Asian');
                                         }}
                                         type="checkbox"
@@ -227,7 +240,7 @@ class Demographics extends React.Component<Props, State> {
                                     /> Asian </span>
                                 <span>
                                     <input
-                                        onChange={function () {
+                                        onChange={() => {
                                             console.info('AfricanAmerican');
                                         }}
                                         type="checkbox"
@@ -238,7 +251,7 @@ class Demographics extends React.Component<Props, State> {
                                 </span>
                                 <span>
                                     <input
-                                        onChange={function () {
+                                        onChange={() => {
                                             console.info('Hispanic');
                                         }}
                                         type="checkbox"
@@ -250,7 +263,7 @@ class Demographics extends React.Component<Props, State> {
                                 <span>
                                     <input
 
-                                        onChange={function () {
+                                        onChange={() => {
                                             console.info('NativeHawaiian');
                                         }}
                                         type="checkbox"
@@ -262,7 +275,7 @@ class Demographics extends React.Component<Props, State> {
                                 <span>
                                     <input
 
-                                        onChange={function () {
+                                        onChange={() => {
                                             console.info('White');
                                         }}
                                         type="checkbox"
@@ -292,7 +305,7 @@ class Demographics extends React.Component<Props, State> {
                             <label> Next of Kin Name </label>
                             <input
 
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -306,7 +319,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Next of Kin Relationship </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -321,7 +334,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Next of Kin Telephone # </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -333,7 +346,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Caregiver Name </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -348,7 +361,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Caregiver Relationship </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -360,7 +373,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Caregiver Telephone # </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -375,7 +388,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Primary Care Provider </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -387,7 +400,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Primary Care Telephone # </label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -431,7 +444,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label>Name</label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -445,7 +458,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Relationship</label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -457,7 +470,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Telephone #</label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -526,7 +539,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Preferred Language</label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"
@@ -538,7 +551,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Preferred Written Language</label>
                             <input
-                                onChange={function () {
+                                onChange={() => {
                                     console.info('');
                                 }}
                                 type="text"

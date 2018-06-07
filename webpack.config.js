@@ -1,10 +1,7 @@
 let webpack = require('webpack');
 module.exports = {
   entry: {
-    'app': [
-        'react-hot-loader/patch',
-        __dirname + "/src/index.tsx"
-    ]
+    app: __dirname + "/src/index.tsx"
   },
 
   output: {
@@ -15,9 +12,6 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
   module: {
     rules: [
       {
