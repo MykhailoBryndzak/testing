@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "start": "npm run build && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3011 --open"
+    "build": "webpack ",
+    "start": "npm run build && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --host 0.0.0.0 --port 3011 --open"
   },
   "dependencies": {
     "@types/prop-types": "^15.5.2",
