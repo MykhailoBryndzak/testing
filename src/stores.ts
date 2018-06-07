@@ -30,7 +30,6 @@ localForage.config({
 
 const hydrate = create({
     storage: localForage,
-
     jsonify: false,
 });
 

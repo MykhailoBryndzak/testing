@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
-import {FormControl} from "react-bootstrap";
 import './Referral.less';
 
 const KEY = 'REFERRAL';
@@ -24,6 +23,11 @@ class Referral extends React.Component<Props, State> {
     }
 
     render(): any {
+        let self = this;
+        let currentPreAdmitId = self.props.$stateParams.id;
+
+        let currentPreAdmit = self.props.preAdmitStore.preAdmit[currentPreAdmitId];
+
         return (
             <div className="referral">
                 {/*-------------------------Referral / Payer-----------------------------*/}
@@ -33,26 +37,39 @@ class Referral extends React.Component<Props, State> {
 
                     <div className="label-input">
                         <label>Date of Referral</label>
-                        <FormControl type="date" placeholder="Enter Date of Referral" bsSize="sm"/>
+                        <input
+                            name="referralDate"
+                            type="date"
+                            placeholder="Enter Date of Referral"
+                            className="form-control input-sm"
+                            onChange={(e) => {
+                                self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                            }}
+                        />
                     </div>
 
                     <h4>Additional Admission Types</h4>
 
                     <select className="form-control input-sm">
                         <option value="" disabled={true} selected={true}>Select Admission Type</option>
-                        <option>Cancer</option>
-                        <option>Cardiovascular</option>
-                        <option>CVA</option>
-                        <option>Infectious Disease</option>
-                        <option>IV Therapy</option>
-                        <option>Pain Management</option>
-                        <option>Rehabilitation</option>
-                        <option>Respiratory Management</option>
-                        <option>Transplant</option>
-                        <option>Trauma</option>
-                        <option>Ventilator Weaning</option>
-                        <option>Wound Care</option>
-                        <option>Other Complex Medical</option>
+                        <option value="additionalAdmissionTypes_Cancer">Cancer</option>
+                        <option value="additionalAdmissionTypes_Cardiovascular">Cardiovascular</option>
+                        <option value="additionalAdmissionTypes_CVA">CVA</option>
+                        <option value="additionalAdmissionTypes_InfectiousDisease">Infectious Disease</option>
+                        <option value="additionalAdmissionTypes_IVTherapy">IV Therapy</option>
+                        <option value="additionalAdmissionTypes_PainManagement">Pain Management</option>
+                        <option value="additionalAdmissionTypes_Rehabilitation">Rehabilitation</option>
+                        <option value="additionalAdmissionTypes_RespiratoryManagement">Respiratory Management</option>
+                        <option value="additionalAdmissionTypes_Transplant">Transplant</option>
+                        <option value="additionalAdmissionTypes_Trauma">Trauma</option>
+                        <option value="additionalAdmissionTypes_VentilatorWeaning">Ventilator Weaning</option>
+                        <option value="additionalAdmissionTypes_WoundCare">Wound Care</option>
+                        <input
+                            name="additionalAdmissionTypes_OtherNote"
+                            type="text"
+                            placeholder="Enter  Other Complex Medical"
+                            className="form-control input-sm"
+                        />
                     </select>
 
                     {/*-------------------------Referring Source Information-----------------------------*/}
@@ -63,13 +80,26 @@ class Referral extends React.Component<Props, State> {
                         <div className="line-0">
                             <div className="label-input">
                                 <label> Referring Facility </label>
-                                <FormControl type="text" placeholder="Enter Referring Facility" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Referring Facility"
+                                    className="form-control input-sm"
+
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> (Admitted Form) Referring Facility Type: </label>
-                                <select className="form-control input-sm">
-                                    <option value="" disabled={true} selected={true}>Select Referring Facility Type</option>
+                                <select
+                                    name="primaryInsurer_Policy"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                >
+                                    <option value="" disabled={true} selected={true}>
+                                        Select Referring Facility Type
+                                    </option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -82,36 +112,53 @@ class Referral extends React.Component<Props, State> {
                         <div className="line-1">
                             <div className="label-input">
                                 <label> Referring Facility Admission Date </label>
-                                <FormControl type="date" placeholder="Enter Date" bsSize="sm"/>
+                                <input type="date" placeholder="Enter Date" className="form-control input-sm"/>
                             </div>
 
                             <div className="label-input">
                                 <label> Contact Name </label>
-                                <FormControl type="text" placeholder="Enter Contact Name" bsSize="sm"/>
+                                <input
+                                    name="facilityContactName"
+                                    type="text"
+                                    placeholder="Enter Contact Name"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
                         </div>
 
                         <div className="line-2">
                             <div className="label-input">
                                 <label> Telephone # </label>
-                                <FormControl type="text" placeholder="Enter Telephone" bsSize="sm"/>
+                                <input type="text" placeholder="Enter Telephone" className="form-control input-sm"/>
                             </div>
 
                             <div className="label-input">
                                 <label> Referring Physician </label>
-                                <FormControl type="text" placeholder="Enter Referring Physician" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Referring Physician"
+                                    className="form-control input-sm"
+                                />
                             </div>
                         </div>
 
                         <div className="line-3">
                             <div className="label-input">
                                 <label> Telephone / Pager # </label>
-                                <FormControl type="text" placeholder="Enter Telephone / Pager" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Telephone / Pager"
+                                    className="form-control input-sm"
+
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Telephone </label>
-                                <FormControl type="text" placeholder="Enter Telephone" bsSize="sm"/>
+                                <input type="text" placeholder="Enter Telephone" className="form-control input-sm"/>
                             </div>
                         </div>
                     </div>
@@ -122,12 +169,20 @@ class Referral extends React.Component<Props, State> {
                         <div className="line-4">
                             <div className="label-input">
                                 <label> Medicare Number </label>
-                                <FormControl type="text" placeholder="Enter Medicare Number" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Medicare Number"
+                                    className="form-control input-sm"
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Medicaid Number </label>
-                                <FormControl type="text" placeholder="Enter Medicaid Number" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Medicaid Number"
+                                    className="form-control input-sm"
+                                />
                             </div>
                         </div>
                     </div>
@@ -141,7 +196,7 @@ class Referral extends React.Component<Props, State> {
                                 <label>Payer Information </label>
                                 <label> (Admitted Form) Referring Facility Type: </label>
                                 <select className="form-control input-sm">
-                                    <option value="" disabled selected>Select One</option>
+                                    <option value="" disabled={true} selected={true}>Select One</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -152,60 +207,124 @@ class Referral extends React.Component<Props, State> {
 
                             <div className="label-input">
                                 <label> Insurer Name </label>
-                                <FormControl type="text" placeholder="Insurer Name" bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_InsurerName"
+                                    type="text"
+                                    placeholder="Insurer Name"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
                         </div>
 
                         <div className="line-6">
                             <div className="label-input">
                                 <label> Contact Name </label>
-                                <FormControl type="text" placeholder="Enter Contact Name" bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_InsurerContactName"
+                                    type="text"
+                                    placeholder="Enter Contact Name"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Telephone # </label>
-                                <FormControl type="text" placeholder="Enter Telephone " bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_InsurerTelephone"
+                                    type="text"
+                                    placeholder="Enter Telephone"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
                         </div>
 
                         <div className="line-7">
                             <div className="label-input">
                                 <label> Case Manager Name </label>
-                                <FormControl type="text" placeholder="Enter Case Manager Name" bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_CaseManagerName"
+                                    type="text"
+                                    placeholder="Enter Case Manager Name"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Telephone # </label>
-                                <FormControl type="text" placeholder="Enter Telephone" bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_CaseManagerTelephone"
+                                    type="text"
+                                    placeholder="Enter Telephone"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
                         </div>
 
                         <div className="line-8">
                             <div className="label-input">
                                 <label> Insured's Name </label>
-                                <FormControl type="text" placeholder="Enter Insured's Name" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Insured's Name"
+                                    className="form-control input-sm"
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Insured's Employer </label>
-                                <FormControl type="text" placeholder="Enter Insured's Employer" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Insured's Employer"
+                                    className="form-control input-sm"
+                                />
                             </div>
                         </div>
 
                         <div className="line-9">
                             <div className="label-input">
                                 <label> Policy # </label>
-                                <FormControl type="text" placeholder="Enter Policy" bsSize="sm"/>
+                                <input type="text" placeholder="Enter Policy" className="form-control input-sm"/>
                             </div>
 
                             <div className="label-input">
                                 <label> Group # </label>
-                                <FormControl type="text" placeholder="Enter Group" bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_Group"
+                                    type="text"
+                                    placeholder="Enter Group"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
                         </div>
                         <div className="label-input">
                             <label>Authorization #</label>
-                            <FormControl type="text" placeholder="Enter Authorization" bsSize="sm"/>
+                            <input
+                                name="primaryInsurer_Authorization"
+                                type="text"
+                                placeholder="Enter Authorization"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                }}
+                            />
                         </div>
                     </div>
                     {/*-------------------------Secondary Insurance-----------------------------*/}
@@ -216,8 +335,14 @@ class Referral extends React.Component<Props, State> {
                             <div className="label-input">
                                 <label>Payer Information </label>
                                 <label> (Admitted Form) Referring Facility Type: </label>
-                                <select className="form-control input-sm">
-                                    <option value="" disabled selected>Select One</option>
+                                <select
+                                    name="primaryInsurer_PayerInformation"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                >
+                                    <option value="" disabled={true} selected={true}>Select One</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -228,65 +353,103 @@ class Referral extends React.Component<Props, State> {
 
                             <div className="label-input">
                                 <label> Insurer Name </label>
-                                <FormControl type="text" placeholder="Insurer Name" bsSize="sm"/>
+                                <input type="text" placeholder="Insurer Name" className="form-control input-sm"/>
                             </div>
                         </div>
 
                         <div className="line-11">
                             <div className="label-input">
                                 <label> Contact Name </label>
-                                <FormControl type="text" placeholder="Enter Contact Name" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Contact Name"
+                                    className="form-control input-sm"
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Telephone # </label>
-                                <FormControl type="text" placeholder="Enter Telephone " bsSize="sm"/>
+                                <input type="text" placeholder="Enter Telephone " className="form-control input-sm"/>
                             </div>
                         </div>
 
                         <div className="line-12">
                             <div className="label-input">
                                 <label> Case Manager Name </label>
-                                <FormControl type="text" placeholder="Enter Case Manager Name" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Case Manager Name"
+                                    className="form-control input-sm"
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Telephone # </label>
-                                <FormControl type="text" placeholder="Enter Telephone" bsSize="sm"/>
+                                <input type="text" placeholder="Enter Telephone" className="form-control input-sm"/>
                             </div>
                         </div>
 
                         <div className="line-13">
                             <div className="label-input">
                                 <label> Insured's Name </label>
-                                <FormControl type="text" placeholder="Enter Insured's Name" bsSize="sm"/>
+                                <input
+                                    name="primaryInsurer_InsuredsName"
+                                    type="text"
+                                    placeholder="Enter Insured's Name"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Insured's Employer </label>
-                                <FormControl type="text" placeholder="Enter Insured's Employer" bsSize="sm"/>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Insured's Employer"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
                         </div>
 
                         <div className="line-14">
                             <div className="label-input">
                                 <label> Policy # </label>
-                                <FormControl type="text" placeholder="Enter Policy" bsSize="sm"/>
+                                <input
+                                    name="secondaryInsurer_Policy"
+                                    type="text"
+                                    placeholder="Enter Policy"
+                                    className="form-control input-sm"
+                                    onChange={(e) => {
+                                        self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                                    }}
+                                />
                             </div>
 
                             <div className="label-input">
                                 <label> Group # </label>
-                                <FormControl type="text" placeholder="Enter Group" bsSize="sm"/>
+                                <input type="text" placeholder="Enter Group" className="form-control input-sm"/>
                             </div>
                         </div>
                         <div className="label-input">
                             <label>Authorization #</label>
-                            <FormControl type="text" placeholder="Enter Authorization" bsSize="sm"/>
+                            <input type="text" placeholder="Enter Authorization" className="form-control input-sm"/>
                         </div>
                     </div>
                     <div className="label-input">
                         <label>Insurance Notes</label>
-                        <FormControl componentClass="textarea" placeholder="Enter Insurance Notes"/>
+                        <input
+                            name="insuranceNotes"
+                            onChange={(e) => {
+                                self.props.preAdmitStore.updateInputField(e.target.name, e.target.value);
+                            }}
+                            className="form-control input-sm"
+                            placeholder="Enter Insurance Notes"
+                        />
                     </div>
 
                     <button className="btn btn-primary" type="submit">Save Referral</button>

@@ -1,0 +1,47 @@
+{
+---
+  "admissionType": 0,
+  "admitTypeOtherComplexMedical": "string",
+  "codeStatusAdvDirectivesNotes": "string",
+  "facilityRoomNumber": "string",
+  "facilityUnit": "string",
+  "facilityTelephone": "string",
+
+  ---
+
+
+
+  "referringFacility": 0,
+  "referringFacilityAdmissionDate": "2018-02-03",
+  "referringFacilityType": 0,
+  "religion": 0,
+  "religionNotes": "string",
+  "secondaryInsurer_Authorization": "string",
+  "secondaryInsurer_CaseManagerName": "string",
+  "secondaryInsurer_CaseManagerTelephone": "string",
+  "secondaryInsurer_Group": "string",
+  "secondaryInsurer_InsuredsEmployer": "string",
+  "secondaryInsurer_InsuredsName": "string",
+  "secondaryInsurer_InsurerContactName": "string",
+  "secondaryInsurer_InsurerName": "string",
+  "secondaryInsurer_InsurerTelephone": "string",
+  "secondaryInsurer_PayerInformation": 0,
+  "secondaryInsurer_Policy": "string",
+  "socialSecurityNumber": "string",
+  "state": "string",
+  "tertiaryInsurer_Authorization": "string",
+  "tertiaryInsurer_CaseManagerName": "string",
+  "tertiaryInsurer_CaseManagerTelephone": "string",
+  "tertiaryInsurer_InsuredsEmployer": "string",
+  "tertiaryInsurer_InsuredsName": "string",
+  "tertiaryInsurer_InsurerContactName": "string",
+  "tertiaryInsurer_InsurerName": "string",
+  "tertiaryInsurer_InsurerTelephone": "string",
+  "tertiaryInsurer_PayerInformation": 0,
+  "tertiaryInsurer_Policy": "string",
+  "tertiaryyInsurer_Group": "string",
+  "translatorLanguage": "string",
+  "wantTranslatorAdmit": 0,
+  "writtenLanguage": "string",
+  "zip": "string"
+}

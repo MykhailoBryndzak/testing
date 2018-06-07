@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {inject, observer} from 'mobx-react';
 import './Demographics.less';
-import {object, string} from "prop-types";
+import {object, string} from 'prop-types';
 
 const KEY = 'DEMOGRAPHICS';
 
@@ -25,10 +25,18 @@ class Demographics extends React.Component<Props, State> {
     render(): any {
         console.info(333, this);
         let self = this;
+        let currentPreAdmitId = self.props.$stateParams.id;
 
-        let currentPreAdmit = self.props.preAdmitStore.preAdmit[self.props.$stateParams.id];
+        let currentPreAdmit = self.props.preAdmitStore.preAdmit[currentPreAdmitId];
 
-        console.info(444, currentPreAdmit);
+        function selectElement(id: string, valueToSelect: string): void {
+            let element = document.getElementById(id);
+            if (!!element && !!valueToSelect) {
+                element.nodeValue = valueToSelect;
+            }
+        }
+
+        selectElement('select-gender', currentPreAdmit.gender);
         return (
 
             <div className="demographics">
@@ -40,9 +48,10 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label className="is-required"> First Name </label>
                             <input
+                                name="firstName"
                                 value={currentPreAdmit.firstName}
-                                onChange={() => {
-                                    console.info('First Name', self);
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter First Name"
@@ -53,10 +62,10 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label className="is-required"> Middle Initial </label>
                             <input
+                                name="middleInitial"
                                 value={currentPreAdmit.middleInitial}
-
-                                onChange={() => {
-                                    console.info('Middle Initial');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Middle Initial"
@@ -69,9 +78,10 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label className="is-required"> Last Name </label>
                             <input
+                                name="lastName"
                                 value={currentPreAdmit.lastName}
-                                onChange={() => {
-                                    console.info('Last Name');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Last Name"
@@ -82,8 +92,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Suffix </label>
                             <input
-                                onChange={() => {
-                                    console.info('Suffix');
+                                name="nameSuffix"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Suffix"
@@ -95,9 +106,10 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Birth Date </label>
                             <input
+                                name="birthDate"
                                 value={currentPreAdmit.birthDate}
-                                onChange={() => {
-                                    console.info(' Birth Date');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="date"
                                 placeholder="Enter Birth Date"
@@ -106,10 +118,17 @@ class Demographics extends React.Component<Props, State> {
                         </div>
                         <div className="label-input">
                             <label> Gender </label>
-                            <select className="form-control input-sm">
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option selected={true}>Unspecified</option>
+                            <select
+                                name="name"
+                                id="select-gender"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                                <option value="UNSPECIFIED">Unspecified</option>
                             </select>
                         </div>
                     </div>
@@ -117,8 +136,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Social Security Number </label>
                             <input
-                                onChange={() => {
-                                    console.info(' Social Security Number');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Social Security Number"
@@ -128,8 +147,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Medicare Number </label>
                             <input
-                                onChange={() => {
-                                    console.info(' Medicare Number ');
+                                name="medicareNumber"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Medicare Number"
@@ -141,8 +161,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Medicaid Number </label>
                             <input
-                                onChange={() => {
-                                    console.info('Medicaid Number');
+                                name="medicaidNumber"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Medicaid Number"
@@ -152,9 +173,10 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Address </label>
                             <input
+                                name="address"
                                 value={currentPreAdmit.address}
-                                onChange={() => {
-                                    console.info('Address');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Address"
@@ -166,9 +188,10 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> City </label>
                             <input
+                                name="city"
                                 value={currentPreAdmit.city}
-                                onChange={() => {
-                                    console.info('City');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter City"
@@ -180,8 +203,8 @@ class Demographics extends React.Component<Props, State> {
                             <label> State </label>
                             <input
                                 value={currentPreAdmit.state}
-                                onChange={() => {
-                                    console.info('State');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter State"
@@ -193,8 +216,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> ZIP </label>
                             <input
-                                onChange={() => {
-                                    console.info('ZIP');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter ZIP"
@@ -204,8 +227,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Telephone # </label>
                             <input
-                                onChange={() => {
-                                    console.info('Telephone');
+                                name="phone"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Telephone"
@@ -220,28 +244,37 @@ class Demographics extends React.Component<Props, State> {
                             <div>
                                 <span>
                                     <input
-                                        onChange={() => {
-                                            console.info('AmericanIndian');
+                                        name="race_AfricanAmerican"
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                         }}
                                         type="checkbox"
-                                        name="Ethnicity"
-                                        value="AmericanIndian/AlaskaNative"
-                                    /> American Indian or Alaska
-                                    Native
+                                        value="race_AfricanAmerican"
+                                    /> AfricanAmerican
                                 </span>
                                 <span>
                                     <input
-                                        onChange={() => {
-                                            console.info('Asian');
+                                        name="race_AmericanIndian"
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                         }}
                                         type="checkbox"
-                                        name="Ethnicity"
-                                        value="Asian"
+                                        value="race_AmericanIndian"
+                                    /> American Indian
+                                </span>
+                                <span>
+                                    <input
+                                        name="race_Asian"
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                        }}
+                                        type="checkbox"
+                                        value="race_Asian"
                                     /> Asian </span>
                                 <span>
                                     <input
-                                        onChange={() => {
-                                            console.info('AfricanAmerican');
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                         }}
                                         type="checkbox"
                                         name="Ethnicity"
@@ -251,36 +284,33 @@ class Demographics extends React.Component<Props, State> {
                                 </span>
                                 <span>
                                     <input
-                                        onChange={() => {
-                                            console.info('Hispanic');
+                                        name="race_HispanicLatino"
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                         }}
                                         type="checkbox"
-                                        name="Ethnicity"
-                                        value="Hispanic/Latino"
-                                    /> Hispanic or
-                                    Latino
+                                        value="race_HispanicLatino"
+                                    /> Hispanic or Latino
                                 </span>
                                 <span>
                                     <input
-
-                                        onChange={() => {
-                                            console.info('NativeHawaiian');
+                                        name="race_HawaiianPacificIsland"
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                         }}
                                         type="checkbox"
-                                        name="Ethnicity"
-                                        value="NativeHawaiian/OtherPacificIslander"
+                                        value="race_HawaiianPacificIsland"
                                     />
-                                     Native Havaiian or Other Pacific Islander
+                                     Native Hawaiian or Other Pacific Islander
                                 </span>
                                 <span>
                                     <input
-
-                                        onChange={() => {
-                                            console.info('White');
+                                        name="race_White"
+                                        onChange={(e) => {
+                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                         }}
                                         type="checkbox"
-                                        name="Ethnicity"
-                                        value="White"
+                                        value="race_White"
                                     /> White
                                 </span>
                             </div>
@@ -288,10 +318,17 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Marital Status </label>
-                            <select className="form-control input-sm">
-                                <option selected={true}>Married</option>
-                                <option>Unmarried</option>
-                                <option>Abandoned</option>
+                            <select
+                                name="marital"
+                                id="select-marital-status"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value="MARRIED" selected={true}>Married</option>
+                                <option value="UNMARRIED">Unmarried</option>
+                                <option value="ABANDONED">Abandoned</option>
                             </select>
                         </div>
                     </div>
@@ -304,9 +341,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Next of Kin Name </label>
                             <input
-
-                                onChange={() => {
-                                    console.info('');
+                                name="nextOfKinName"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Next of Kin Name"
@@ -319,8 +356,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Next of Kin Relationship </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="nextOfKinNameRelationship"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Next of Kin Relationship"
@@ -334,8 +372,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Next of Kin Telephone # </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="nextOfKinNameTelephone"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Next of Kin Telephone"
@@ -346,8 +385,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Caregiver Name </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="caregiverName"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Caregiver Name"
@@ -361,8 +401,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Caregiver Relationship </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="caregiverNameRelationship"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Caregiver Relationship"
@@ -373,8 +414,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Caregiver Telephone # </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="caregiverNameTelephone"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Caregiver Telephone"
@@ -388,8 +430,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Primary Care Provider </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="primaryCareProvider"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Primary Care Provider"
@@ -400,8 +443,9 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> Primary Care Telephone # </label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="primaryCareProviderTelephone"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Primary Care Telephone"
@@ -414,7 +458,14 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Code Status </label>
-                            <textarea className="form-control input-sm" placeholder="Enter Code Status"/>
+                            <textarea
+                                name="codeStatus"
+                                className="form-control input-sm"
+                                placeholder="Enter Code Status"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            />
                         </div>
                     </div>
 
@@ -422,10 +473,17 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
 
                             <label> Advanced Directives </label>
-                            <select className="form-control input-sm">
-                                <option>Yes</option>
-                                <option>No</option>
-                                <option selected={true}>Unspecified</option>
+                            <select
+                                name="codeStatusAdvDirectives"
+                                id="select-advanced-directives"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                                <option value="unspecified" selected={true}>Unspecified</option>
                             </select>
                             <textarea className="form-control input-sm" placeholder="Describe Advanced Directives"/>
                         </div>
@@ -436,16 +494,23 @@ class Demographics extends React.Component<Props, State> {
 
                     <div className="line-14">
                         <div className="label-input">
-                            <select className="form-control input-sm">
-                                <option>Yes</option>
-                                <option>No</option>
-                                <option selected={true}>Unspecified</option>
+                            <select
+                                name="codeStatusPowerOfAttorney"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                                <option value="unspecified" selected={true}>Unspecified</option>
                             </select>
 
                             <label>Name</label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="codeStatusPowerOfAttorneyName"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Name"
@@ -458,8 +523,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Relationship</label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="codeStatusPowerOfAttorneyRelationship"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Relationship"
@@ -470,8 +536,9 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Telephone #</label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                name="codeStatusPowerOfAttorneyTelephone"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Telephone"
@@ -483,12 +550,26 @@ class Demographics extends React.Component<Props, State> {
                     <div className="line-16">
                         <div className="label-input">
                             <label>Notes</label>
-                            <textarea className="form-control input-sm" placeholder="Enter Notes"/>
+                            <textarea
+                                name="codeStatusPowerOfAttorneyNotes"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                                className="form-control input-sm"
+                                placeholder="Enter Notes"
+                            />
                         </div>
 
                         <div className="label-input">
                             <label>Patient Network Notes</label>
-                            <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
+                            <textarea
+                                name="patientNetworkNotes"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                                className="form-control input-sm"
+                                placeholder="Enter Patient Network Notes"
+                            />
                         </div>
                     </div>
                     {/*-------------------------Pre-Hospital Residance-----------------------------*/}
@@ -496,7 +577,13 @@ class Demographics extends React.Component<Props, State> {
                     <div className="line-17">
                         <div className="label-input">
                             <label>Pre-Hospital Living Setting</label>
-                            <select className="form-control input-sm">
+                            <select
+                                name="preHospitalLivingSetting"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
                                 <option selected={true}>Home</option>
                                 <option>Hospital</option>
                             </select>
@@ -504,26 +591,45 @@ class Demographics extends React.Component<Props, State> {
 
                         <div className="label-input">
                             <label>Pre-Hospital Living With</label>
-                            <select className="form-control input-sm">
-                                <option selected={true}>Relative</option>
-                                <option>Nurse</option>
-                                <option>Doctor</option>
+                            <select
+                                name="preHospitalLivingWith"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value="0" selected={true}>Relative</option>
+                                <option value="1">Nurse</option>
+                                <option value="2">Doctor</option>
                             </select>
                         </div>
                     </div>
 
                     <label>Pre-Hospital Residance Notes</label>
-                    <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
+                    <textarea
+                        name="preHospitalResidenceNotes"
+                        className="form-control input-sm"
+                        placeholder="Enter Patient Network Notes"
+                        onChange={(e) => {
+                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                        }}
+                    />
 
                     {/*-------------------------Language / Communication Needs-----------------------------*/}
                     <h4>Language / Communication Needs</h4>
                     <div className="line-18">
                         <div className="label-input">
                             <label>English Speaking</label>
-                            <select className="form-control input-sm">
-                                <option>Yes</option>
-                                <option>No</option>
-                                <option selected={true}>Unspecified</option>
+                            <select
+                                name="englishSpeaking"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                                <option value="unspecified" selected={true}>Unspecified</option>
                             </select>
                         </div>
 
@@ -539,8 +645,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Preferred Language</label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Preferred Language"
@@ -551,8 +657,8 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Preferred Written Language</label>
                             <input
-                                onChange={() => {
-                                    console.info('');
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
                                 type="text"
                                 placeholder="Enter Preferred Written Language"
@@ -562,7 +668,14 @@ class Demographics extends React.Component<Props, State> {
                     </div>
                     <div className="label-input">
                         <label>Other Communication Needs</label>
-                        <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
+                        <textarea
+                            name="otherCommunicationNeeds"
+                            onChange={(e) => {
+                                self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                            }}
+                            className="form-control input-sm"
+                            placeholder="Enter Patient Network Notes"
+                        />
                     </div>
 
                     {/*-------------------------Religious / Cultural Considerations-----------------------------*/}
