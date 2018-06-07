@@ -136,6 +136,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> Social Security Number </label>
                             <input
+                                name="socialSecurityNumber"
                                 onChange={(e) => {
                                     self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
@@ -202,6 +203,7 @@ class Demographics extends React.Component<Props, State> {
 
                             <label> State </label>
                             <input
+                                name="state"
                                 value={currentPreAdmit.state}
                                 onChange={(e) => {
                                     self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
@@ -216,6 +218,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label> ZIP </label>
                             <input
+                                name="zip"
                                 onChange={(e) => {
                                     self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
@@ -270,17 +273,7 @@ class Demographics extends React.Component<Props, State> {
                                         }}
                                         type="checkbox"
                                         value="race_Asian"
-                                    /> Asian </span>
-                                <span>
-                                    <input
-                                        onChange={(e) => {
-                                            self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
-                                        }}
-                                        type="checkbox"
-                                        name="Ethnicity"
-                                        value="Black/AfricanAmerican"
-                                    /> Black or
-                                    African American
+                                    /> Asian
                                 </span>
                                 <span>
                                     <input
@@ -316,7 +309,6 @@ class Demographics extends React.Component<Props, State> {
                             </div>
                         </div>
                         <div className="label-input">
-
                             <label> Marital Status </label>
                             <select
                                 name="marital"
@@ -338,7 +330,6 @@ class Demographics extends React.Component<Props, State> {
 
                     <div className="line-8">
                         <div className="label-input">
-
                             <label> Next of Kin Name </label>
                             <input
                                 name="nextOfKinName"
@@ -347,9 +338,7 @@ class Demographics extends React.Component<Props, State> {
                                 }}
                                 type="text"
                                 placeholder="Enter Next of Kin Name"
-
                                 className="form-control input-sm"
-
                             />
                         </div>
                         <div className="label-input">
@@ -369,7 +358,6 @@ class Demographics extends React.Component<Props, State> {
 
                     <div className="line-9">
                         <div className="label-input">
-
                             <label> Next of Kin Telephone # </label>
                             <input
                                 name="nextOfKinNameTelephone"
@@ -382,7 +370,6 @@ class Demographics extends React.Component<Props, State> {
                             />
                         </div>
                         <div className="label-input">
-
                             <label> Caregiver Name </label>
                             <input
                                 name="caregiverName"
@@ -398,7 +385,6 @@ class Demographics extends React.Component<Props, State> {
 
                     <div className="line-10">
                         <div className="label-input">
-
                             <label> Caregiver Relationship </label>
                             <input
                                 name="caregiverNameRelationship"
@@ -411,7 +397,6 @@ class Demographics extends React.Component<Props, State> {
                             />
                         </div>
                         <div className="label-input">
-
                             <label> Caregiver Telephone # </label>
                             <input
                                 name="caregiverNameTelephone"
@@ -453,10 +438,8 @@ class Demographics extends React.Component<Props, State> {
                             />
                         </div>
                     </div>
-
                     <div className="line-12">
                         <div className="label-input">
-
                             <label> Code Status </label>
                             <textarea
                                 name="codeStatus"
@@ -468,7 +451,6 @@ class Demographics extends React.Component<Props, State> {
                             />
                         </div>
                     </div>
-
                     <div className="line-13">
                         <div className="label-input">
 
@@ -485,11 +467,19 @@ class Demographics extends React.Component<Props, State> {
                                 <option value="false">No</option>
                                 <option value="unspecified" selected={true}>Unspecified</option>
                             </select>
-                            <textarea className="form-control input-sm" placeholder="Describe Advanced Directives"/>
+                            <textarea
+                                name="codeStatusAdvDirectivesNotes"
+                                className="form-control input-sm"
+                                placeholder="Describe Advanced Directives"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            />
                         </div>
                     </div>
 
                     {/*-------------------------Patient Representation or Power Of Attorney-----------------------------*/}
+
                     <h4>Patient Representation or Power Of Attorney</h4>
 
                     <div className="line-14">
@@ -632,12 +622,17 @@ class Demographics extends React.Component<Props, State> {
                                 <option value="unspecified" selected={true}>Unspecified</option>
                             </select>
                         </div>
-
                         <div className="label-input">
                             <label>Need or want an interpreter</label>
-                            <select className="form-control input-sm">
-                                <option>Yes</option>
-                                <option selected={true}>No</option>
+                            <select
+                                name="wantTranslatorAdmit"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value={0}>Yes</option>
+                                <option value={1}>No</option>
                             </select>
                         </div>
                     </div>
@@ -645,6 +640,7 @@ class Demographics extends React.Component<Props, State> {
                         <div className="label-input">
                             <label>Preferred Language</label>
                             <input
+                                name="translatorLanguage"
                                 onChange={(e) => {
                                     self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
@@ -653,10 +649,10 @@ class Demographics extends React.Component<Props, State> {
                                 className="form-control input-sm"
                             />
                         </div>
-
                         <div className="label-input">
                             <label>Preferred Written Language</label>
                             <input
+                                name="writtenLanguage"
                                 onChange={(e) => {
                                     self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                                 }}
@@ -670,26 +666,40 @@ class Demographics extends React.Component<Props, State> {
                         <label>Other Communication Needs</label>
                         <textarea
                             name="otherCommunicationNeeds"
+                            className="form-control input-sm"
+                            placeholder="Enter Patient Network Notes"
                             onChange={(e) => {
                                 self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
                             }}
-                            className="form-control input-sm"
-                            placeholder="Enter Patient Network Notes"
                         />
                     </div>
 
                     {/*-------------------------Religious / Cultural Considerations-----------------------------*/}
+
                     <h4>Religious / Cultural Considerations</h4>
                     <div className="line-20">
                         <div className="label-input">
                             <label>Religion</label>
-                            <select className="form-control input-sm">
-                                <option>Methodist</option>
-                                <option>Christian</option>
-                                <option selected={true}>None</option>
+                            <select
+                                name="religion"
+                                className="form-control input-sm"
+                                onChange={(e) => {
+                                    self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                                }}
+                            >
+                                <option value={0}>Methodist</option>
+                                <option value={1}>Christian</option>
+                                <option value={2}>None</option>
                             </select>
                         </div>
-                        <textarea className="form-control input-sm" placeholder="Enter Patient Network Notes"/>
+                        <textarea
+                            name="religionNotes"
+                            className="form-control input-sm"
+                            placeholder="Enter Patient Network Notes"
+                            onChange={(e) => {
+                                self.props.preAdmitStore.updateInputField(e.target.name, e.target.value, currentPreAdmitId);
+                            }}
+                        />
                     </div>
                 </div>
             </div>
